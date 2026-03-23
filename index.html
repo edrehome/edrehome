@@ -19,69 +19,61 @@ header {
   padding: 30px 20px;
 }
 
-header h1 {
-  margin: 0;
-  font-size: 32px;
-}
-
-header p {
-  margin-top: 5px;
-  color: #ccc;
+/* TITULOS DE CATEGORIA */
+h2 {
+  margin-left: 30px;
+  margin-top: 30px;
+  color: #333;
 }
 
 /* GRID */
 .container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 25px;
-  padding: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  padding: 20px 30px;
 }
 
-/* PRODUCT CARD */
+/* PRODUCTO */
 .producto {
   background: white;
   border-radius: 15px;
-  padding: 20px;
+  padding: 15px;
   text-align: center;
-  transition: 0.3s;
   box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+  transition: 0.3s;
 }
 
 .producto:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
 
-/* IMAGE */
+/* IMAGEN */
 .producto img {
   width: 100%;
   height: 180px;
   object-fit: cover;
   border-radius: 10px;
-  margin-bottom: 15px;
 }
 
-/* TEXT */
+/* TEXTO */
 .producto h3 {
-  margin: 10px 0;
+  margin: 10px 0 5px;
 }
 
 .producto p {
-  font-size: 18px;
-  color: #444;
+  font-weight: bold;
 }
 
-/* BUTTON */
+/* BOTON */
 button {
   background: #25D366;
   color: white;
   border: none;
-  padding: 12px;
+  padding: 10px;
   border-radius: 8px;
   cursor: pointer;
   width: 100%;
-  font-size: 15px;
-  transition: 0.3s;
 }
 
 button:hover {
@@ -97,46 +89,83 @@ button:hover {
   <p>Descanso y estilo para tu hogar</p>
 </header>
 
+<!-- EDREDONES -->
+<h2>Edredones</h2>
 <div class="container">
 
   <div class="producto">
-    <img src="https://via.placeholder.com/300x200">
-    <h3>Edredón Queen</h3>
+    <img src="DENVER.jpg">
+    <h3>Edredón Denver</h3>
     <p>L.1200</p>
-    <button onclick="pedir('Edredón Queen',1200)">Pedir por WhatsApp</button>
+    <button onclick="pedir('Edredón Denver',1200)">Pedir</button>
   </div>
 
   <div class="producto">
-    <img src="https://via.placeholder.com/300x200">
+    <img src="MORERA.jpg">
+    <h3>Edredón Morera</h3>
+    <p>L.1300</p>
+    <button onclick="pedir('Edredón Morera',1300)">Pedir</button>
+  </div>
+
+</div>
+
+<!-- ALMOHADAS -->
+<h2>Almohadas</h2>
+<div class="container">
+
+  <div class="producto">
+    <img src="DENVER.jpg">
     <h3>Almohada Premium</h3>
     <p>L.250</p>
-    <button onclick="pedir('Almohada Premium',250)">Pedir por WhatsApp</button>
+    <button onclick="pedir('Almohada Premium',250)">Pedir</button>
   </div>
 
+</div>
+
+<!-- CORTINAS -->
+<h2>Cortinas</h2>
+<div class="container">
+
   <div class="producto">
-    <img src="https://via.placeholder.com/300x200">
+    <img src="MORERA.jpg">
     <h3>Cortinas Elegantes</h3>
     <p>L.800</p>
-    <button onclick="pedir('Cortinas Elegantes',800)">Pedir por WhatsApp</button>
+    <button onclick="pedir('Cortinas Elegantes',800)">Pedir</button>
   </div>
 
+</div>
+
+<!-- SABANAS -->
+<h2>Sábanas</h2>
+<div class="container">
+
   <div class="producto">
-    <img src="https://via.placeholder.com/300x200">
+    <img src="DENVER.jpg">
+    <h3>Sábanas Queen</h3>
+    <p>L.600</p>
+    <button onclick="pedir('Sábanas Queen',600)">Pedir</button>
+  </div>
+
+</div>
+
+<!-- COJINES -->
+<h2>Cojines</h2>
+<div class="container">
+
+  <div class="producto">
+    <img src="MORERA.jpg">
     <h3>Cojines Decorativos</h3>
     <p>L.180</p>
-    <button onclick="pedir('Cojines Decorativos',180)">Pedir por WhatsApp</button>
+    <button onclick="pedir('Cojines Decorativos',180)">Pedir</button>
   </div>
 
 </div>
 
 <script>
 function pedir(nombre, precio){
-  let numero = "50498001122"; // 🔥 PON TU NÚMERO REAL
-
+  let numero = "504XXXXXXXX"; // CAMBIA POR TU NUMERO REAL
   let mensaje = "Hola, quiero pedir: " + nombre + " Precio: L." + precio;
-
   let url = "https://api.whatsapp.com/send?phone=" + numero + "&text=" + encodeURIComponent(mensaje);
-
   window.open(url, '_blank');
 }
 </script>
