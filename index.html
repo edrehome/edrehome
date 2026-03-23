@@ -52,7 +52,7 @@ header p {
   box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
 
-/* IMAGE PLACEHOLDER */
+/* IMAGE */
 .producto img {
   width: 100%;
   height: 180px;
@@ -110,30 +110,33 @@ button:hover {
     <img src="https://via.placeholder.com/300x200">
     <h3>Almohada Premium</h3>
     <p>L.250</p>
-    <button onclick="pedir('Almohada Premium',250)">Pedir</button>
+    <button onclick="pedir('Almohada Premium',250)">Pedir por WhatsApp</button>
   </div>
 
   <div class="producto">
     <img src="https://via.placeholder.com/300x200">
     <h3>Cortinas Elegantes</h3>
     <p>L.800</p>
-    <button onclick="pedir('Cortinas Elegantes',800)">Pedir</button>
+    <button onclick="pedir('Cortinas Elegantes',800)">Pedir por WhatsApp</button>
   </div>
 
   <div class="producto">
     <img src="https://via.placeholder.com/300x200">
     <h3>Cojines Decorativos</h3>
     <p>L.180</p>
-    <button onclick="pedir('Cojines Decorativos',180)">Pedir</button>
+    <button onclick="pedir('Cojines Decorativos',180)">Pedir por WhatsApp</button>
   </div>
 
 </div>
 
 <script>
 function pedir(nombre, precio){
-  let numero = "504XXXXXXXX";
-  let mensaje = `Hola, quiero pedir:\n${nombre}\nPrecio: L.${precio}`;
-  let url = "https://wa.me/" + numero + "?text=" + encodeURIComponent(mensaje);
+  let numero = "50498001122"; // 🔥 PON TU NÚMERO REAL
+
+  let mensaje = "Hola, quiero pedir: " + nombre + " Precio: L." + precio;
+
+  let url = "https://api.whatsapp.com/send?phone=" + numero + "&text=" + encodeURIComponent(mensaje);
+
   window.open(url, '_blank');
 }
 </script>
