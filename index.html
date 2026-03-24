@@ -26,6 +26,18 @@ header {
   margin-bottom: 10px;
 }
 
+/* 🛒 BARRA CARRITO */
+#carritoBarra {
+  background: #fff;
+  padding: 12px;
+  text-align: center;
+  font-weight: bold;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid #ddd;
+}
+
 h2 {
   margin-left: 30px;
   margin-top: 30px;
@@ -98,6 +110,11 @@ button:hover {
   <h1>EdreHome Store</h1>
   <p>Descanso y estilo para tu hogar</p>
 </header>
+
+<!-- 🛒 CARRITO -->
+<div id="carritoBarra">
+  🛒 Carrito: <span id="contador">0</span> productos
+</div>
 
 <h2>Edredones</h2>
 <div class="container">
@@ -259,7 +276,12 @@ let carrito = [];
 
 function pedir(nombre, precio){
   carrito.push({ nombre, precio });
+  actualizarCarrito();
   alert(nombre + " agregado al pedido");
+}
+
+function actualizarCarrito(){
+  document.getElementById("contador").innerText = carrito.length;
 }
 
 function enviarPedido(){
