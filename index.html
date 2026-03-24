@@ -5,240 +5,214 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>EdreHome Store</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
 <style>
 body {
-  font-family: 'Segoe UI', sans-serif;
-  background: #f7f7f7;
+  font-family: 'Poppins', sans-serif;
   margin: 0;
+  background: #f7f7f7;
+}
+
+/* NAVBAR */
+.navbar {
+  background: #e91e63;
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 20px;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav-links a {
+  color: white;
+  margin-right: 15px;
+  text-decoration: none;
+}
+
+/* CONTADOR */
+.cart-count {
+  background: white;
+  color: #e91e63;
+  padding: 3px 8px;
+  border-radius: 50px;
+  font-size: 12px;
 }
 
 /* HEADER */
 header {
-  background-image: url("FONDO CABECERA.jpg");
+  background-image: url("fondo-header.jpg");
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
-
   color: white;
   text-align: center;
-  padding: 60px 20px;
+  padding: 30px;
   position: relative;
 }
 
-  header::before {
+header::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0,0,0,0.4);
 }
 
-  header * {
+header * {
   position: relative;
-  z-index: 1;
-}
-
-.logo {
-  width: 120px;
-  margin-bottom: 10px;
 }
 
 /* TITULOS */
 h2 {
-  margin-left: 30px;
-  margin-top: 30px;
-  color: #333;
+  margin: 20px;
+  color: #e91e63;
 }
 
 /* GRID */
 .container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
-  padding: 20px 30px;
+  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+  gap: 15px;
+  padding: 15px;
 }
 
 /* PRODUCTO */
 .producto {
   background: white;
-  border-radius: 15px;
-  padding: 15px;
+  border-radius: 10px;
+  padding: 10px;
   text-align: center;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-  transition: 0.3s;
 }
 
-.producto:hover {
-  transform: translateY(-5px);
-}
-
-/* IMAGEN */
 .producto img {
   width: 100%;
-  height: auto;
-  object-fit: contain;
-  background: #fff;
-  border-radius: 10px;
-}
-
-/* TEXTO */
-.producto h3 {
-  margin: 10px 0 5px;
-}
-
-.producto p {
-  font-weight: bold;
 }
 
 /* BOTON */
 button {
-  background: #25D366;
+  background: #e91e63;
   color: white;
   border: none;
-  padding: 10px;
-  border-radius: 8px;
-  cursor: pointer;
+  padding: 8px;
+  border-radius: 5px;
   width: 100%;
-  margin-top: 5px;
 }
 
-button:hover {
-  background: #1ebe5d;
+/* 🔥 CARRITO */
+.carrito {
+  position: fixed;
+  right: 0;
+  top: 60px;
+  width: 250px;
+  background: white;
+  height: 100%;
+  box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+  padding: 10px;
+  overflow-y: auto;
 }
 
-/* BOTON FINAL */
-.final {
-  padding: 20px;
+.carrito h3 {
+  margin-top: 0;
+}
+
+.carrito ul {
+  padding-left: 15px;
+}
+
+.carrito button {
+  margin-top: 10px;
 }
 </style>
 </head>
 
 <body>
 
+<!-- NAVBAR -->
+<div class="navbar">
+  <div class="nav-links">
+    <a href="#edredones">Edredones</a>
+    <a href="#almohadas">Almohadas</a>
+    <a href="#cortinas">Cortinas</a>
+  </div>
+  <div>
+    🛒 <span class="cart-count" id="contador">0</span>
+  </div>
+</div>
+
 <header>
-  <img src="LOGO EDRE.png" class="logo">
   <h1>EdreHome Store</h1>
-  <p>Descanso y estilo para tu hogar</p>
 </header>
 
-<!-- EDREDONES -->
-<h2>Edredones</h2>
+<h2 id="edredones">Edredones</h2>
 <div class="container">
-
   <div class="producto">
     <img src="DENVER.jpg">
     <h3>Edredón Denver</h3>
-    <p>L.00</p>
-    <button onclick="agregar('Edredón Denver',0)">Agregar</button>
+    <button onclick="agregar('Edredón Denver')">Agregar</button>
   </div>
-
-  <div class="producto">
-    <img src="CAPIBARA.jpg">
-    <h3>Edredón Capibara</h3>
-    <p>L.00</p>
-    <button onclick="agregar('Edredón Capibara',0)">Agregar</button>
-  </div>
-
-  <div class="producto">
-    <img src="COOPER.jpg">
-    <h3>Edredón Cooper</h3>
-    <p>L.00</p>
-    <button onclick="agregar('Edredón Cooper',0)">Agregar</button>
-  </div>
-
-  <div class="producto">
-    <img src="GALES.jpg">
-    <h3>Edredón Gales</h3>
-    <p>L.00</p>
-    <button onclick="agregar('Edredón Gales',0)">Agregar</button>
-  </div>
-
-  <div class="producto">
-    <img src="SHADOW.jpg">
-    <h3>Edredón Shadow</h3>
-    <p>L.00</p>
-    <button onclick="agregar('Edredón Shadow',0)">Agregar</button>
-  </div>
-
 </div>
 
-<!-- ALMOHADAS -->
-<h2>Almohadas</h2>
+<h2 id="almohadas">Almohadas</h2>
 <div class="container">
-
   <div class="producto">
     <img src="ALMOHADA VIALIFRESH.jpg">
-    <h3>Almohada Vialifresh</h3>
-    <p>L.00</p>
-    <button onclick="agregar('Almohada Vialifresh',0)">Agregar</button>
+    <button onclick="agregar('Almohada')">Agregar</button>
   </div>
-
-  <div class="producto">
-    <img src="ALMOHADAS ABRAZABLES.jpg">
-    <h3>Almohadas Abrazables</h3>
-    <p>L.00</p>
-    <button onclick="agregar('Almohadas Abrazables',0)">Agregar</button>
-  </div>
-
 </div>
 
-<!-- CORTINAS -->
-<h2>Cortinas</h2>
+<h2 id="cortinas">Cortinas</h2>
 <div class="container">
-
-  <div class="producto">
-    <img src="CORTINAS BLACHOUT.jpg">
-    <h3>Cortinas Blackout</h3>
-    <p>L.00</p>
-    <button onclick="agregar('Cortinas Blackout',0)">Agregar</button>
-  </div>
-
   <div class="producto">
     <img src="CORTINAS.jpg">
-    <h3>Cortinas</h3>
-    <p>L.00</p>
-    <button onclick="agregar('Cortinas Blackout',0)">Agregar</button>
+    <button onclick="agregar('Cortinas')">Agregar</button>
   </div>
-
-
 </div>
 
-<!-- BOTON FINAL -->
-<div class="final">
-  <button onclick="enviarPedido()">Enviar pedido por WhatsApp</button>
+<!-- 🔥 PANEL CARRITO -->
+<div class="carrito">
+  <h3>Tu pedido</h3>
+  <ul id="lista"></ul>
+  <button onclick="enviarPedido()">Enviar WhatsApp</button>
+  <button onclick="vaciar()">Vaciar</button>
 </div>
 
 <script>
 let carrito = [];
 
-function agregar(nombre, precio){
-  carrito.push({nombre, precio});
-  alert(nombre + " agregado");
+function agregar(nombre){
+  carrito.push(nombre);
+  actualizar();
+}
+
+function actualizar(){
+  let lista = document.getElementById("lista");
+  let contador = document.getElementById("contador");
+
+  lista.innerHTML = "";
+  carrito.forEach(item => {
+    let li = document.createElement("li");
+    li.textContent = item;
+    lista.appendChild(li);
+  });
+
+  contador.textContent = carrito.length;
+}
+
+function vaciar(){
+  carrito = [];
+  actualizar();
 }
 
 function enviarPedido(){
-  if(carrito.length === 0){
-    alert("No has agregado productos");
-    return;
-  }
-
-  let numero = "50498001122";
-
   let mensaje = "Hola, quiero pedir:\n\n";
-  let total = 0;
-
-  carrito.forEach((item, index) => {
-    mensaje += (index+1) + ". " + item.nombre + "\n";
-    total += item.precio;
+  carrito.forEach((item,i)=>{
+    mensaje += (i+1)+". "+item+"\n";
   });
 
-  mensaje += "\nTotal: L." + total;
-
-  let url = "https://api.whatsapp.com/send?phone=" + numero + "&text=" + encodeURIComponent(mensaje);
-
-  window.open(url, '_blank');
+  let url = "https://api.whatsapp.com/send?phone=50498001122&text="+encodeURIComponent(mensaje);
+  window.open(url);
 }
 </script>
 
