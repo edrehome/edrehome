@@ -12,14 +12,36 @@ body {
   margin: 0;
 }
 
+/* HEADER CON FONDO */
 header {
-  background: linear-gradient(135deg, #2c2c2c, #444);
+  position: relative;
   color: white;
   text-align: center;
-  padding: 25px;
+  padding: 40px 25px;
+  background: url('FONDO CABECERA.jpg') center/cover no-repeat;
 }
 
-.logo { width: 120px; }
+/* capa oscura */
+header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+}
+
+/* contenido encima */
+header * {
+  position: relative;
+  z-index: 1;
+}
+
+.logo { 
+  width: 120px; 
+  filter: drop-shadow(0 0 5px rgba(0,0,0,0.7));
+}
 
 /* CARRITO */
 #carritoBarra {
