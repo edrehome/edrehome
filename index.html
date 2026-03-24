@@ -38,6 +38,29 @@ header {
   border-bottom: 1px solid #ddd;
 }
 
+#detalleCarrito {
+  background: #f9f9f9;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: left;
+  margin-top: 10px;
+}
+
+.item-carrito {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.btn-eliminar {
+  background: red;
+  padding: 5px 8px;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+  border: none;
+}
+
 h2 {
   margin-left: 30px;
   margin-top: 30px;
@@ -95,7 +118,6 @@ button:hover {
   background: #1ebe5d;
 }
 
-/* BOTON FINAL */
 .btn-final {
   margin: 30px;
   font-size: 18px;
@@ -113,7 +135,13 @@ button:hover {
 
 <!-- 🛒 CARRITO -->
 <div id="carritoBarra">
-  🛒 Carrito: <span id="contador">0</span> productos
+  🛒 Carrito: <span id="contador">0</span> productos | Total: L.<span id="total">0</span>
+  <br>
+  <button onclick="toggleCarrito()" style="margin-top:10px; width:auto;">
+    Ver carrito
+  </button>
+
+  <div id="detalleCarrito" style="display:none;"></div>
 </div>
 
 <h2>Edredones</h2>
@@ -282,6 +310,45 @@ function pedir(nombre, precio){
 
 function actualizarCarrito(){
   document.getElementById("contador").innerText = carrito.length;
+
+  let total = 0;
+  carrito.forEach(item => total += item.precio);
+
+  document.getElementById("total").innerText = total;
+
+  renderCarrito();
+}
+
+function renderCarrito(){
+  let contenedor = document.getElementById("detalleCarrito");
+
+  if(carrito.length === 0){
+    contenedor.innerHTML = "<p>Carrito vacío</p>";
+    return;
+  }
+
+  let html = "";
+
+  carrito.forEach((item, index) => {
+    html += `
+      <div class="item-carrito">
+        ${item.nombre} - L.${item.precio}
+        <button class="btn-eliminar" onclick="eliminar(${index})">X</button>
+      </div>
+    `;
+  });
+
+  contenedor.innerHTML = html;
+}
+
+function eliminar(index){
+  carrito.splice(index, 1);
+  actualizarCarrito();
+}
+
+function toggleCarrito(){
+  let div = document.getElementById("detalleCarrito");
+  div.style.display = (div.style.display === "none") ? "block" : "none";
 }
 
 function enviarPedido(){
@@ -297,6 +364,9 @@ function enviarPedido(){
   carrito.forEach((item, index) => {
     mensaje += (index + 1) + ". " + item.nombre + " - L." + item.precio + "\n";
   });
+
+  let total = carrito.reduce((sum, item) => sum + item.precio, 0);
+  mensaje += "\nTotal: L." + total;
 
   let url = "https://api.whatsapp.com/send?phone=" + numero + "&text=" + encodeURIComponent(mensaje);
 
