@@ -200,11 +200,29 @@ function toggleCarrito(){
   d.style.display=d.style.display==="none"?"block":"none";
 }
 
+/* 🔥 NUEVA FUNCION CON TOTAL EN WHATSAPP */
 function enviarPedido(){
-  let msg="Pedido:\n";
-  carrito.forEach(p=> msg+=p.nombre+" x"+p.cantidad+"\n");
-  window.open("https://api.whatsapp.com/send?phone=50498001122&text="+encodeURIComponent(msg));
-  carrito=[]; localStorage.removeItem("carrito"); actualizar();
+  if(carrito.length === 0){
+    alert("No has agregado productos");
+    return;
+  }
+
+  let msg = "Hola, quiero pedir:\n\n";
+  let total = 0;
+
+  carrito.forEach(p=>{
+    let subtotal = p.precio * p.cantidad;
+    total += subtotal;
+    msg += p.nombre + " x" + p.cantidad + " - L." + subtotal + "\n";
+  });
+
+  msg += "\nTotal: L." + total;
+
+  window.open("https://api.whatsapp.com/send?phone=50498001122&text=" + encodeURIComponent(msg));
+
+  carrito=[];
+  localStorage.removeItem("carrito");
+  actualizar();
 }
 
 actualizar();
