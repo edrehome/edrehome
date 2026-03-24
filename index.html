@@ -175,7 +175,6 @@ button {
 <button class="btn-final" onclick="enviarPedido()">Enviar pedido por WhatsApp</button>
 
 <script>
-// 🔥 CARGAR
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 function guardar(){
@@ -251,6 +250,10 @@ function eliminar(i){
   actualizar();
 }
 
+function toggleCarrito(){
+  let d = document.getElementById("detalleCarrito");
+  d.style.display = d.style.display === "none" ? "block" : "none";
+}
 
 function enviarPedido(){
   if(carrito.length === 0){
@@ -264,15 +267,16 @@ function enviarPedido(){
     msg += p.nombre + " x" + p.cantidad + "\n";
   });
 
-  // 🔥 abrir WhatsApp
   window.open("https://api.whatsapp.com/send?phone=50498001122&text=" + encodeURIComponent(msg));
 
-  // 🔥 LIMPIAR CARRITO
+  // limpiar carrito
   carrito = [];
   localStorage.removeItem("carrito");
 
-  actualizar(); // refresca pantalla
+  actualizar();
 }
+
+actualizar();
 </script>
 
 </body>
