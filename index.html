@@ -21,9 +21,9 @@ header {
 
 .logo {
   width: 120px;
-  margin-bottom: 10px;
 }
 
+/* CARRITO */
 #carritoBarra {
   background: #fff;
   padding: 12px;
@@ -46,22 +46,36 @@ header {
 .item-carrito {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 5px;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.controles {
+  display: flex;
+  gap: 5px;
+}
+
+.btn-cantidad {
+  background: #333;
+  color: white;
+  border: none;
+  padding: 3px 8px;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .btn-eliminar {
   background: red;
-  padding: 5px 8px;
-  border-radius: 5px;
-  cursor: pointer;
   color: white;
   border: none;
+  padding: 5px 8px;
+  border-radius: 5px;
 }
 
+/* PRODUCTOS */
 h2 {
   margin-left: 30px;
   margin-top: 30px;
-  color: #333;
 }
 
 .container {
@@ -76,29 +90,11 @@ h2 {
   border-radius: 15px;
   padding: 15px;
   text-align: center;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-  transition: 0.3s;
-  overflow: hidden;
-}
-
-.producto:hover {
-  transform: translateY(-5px);
 }
 
 .producto img {
   width: 100%;
-  height: auto;
-  object-fit: contain;
-  background: #fff;
   border-radius: 10px;
-}
-
-.producto h3 {
-  margin: 10px 0 5px;
-}
-
-.producto p {
-  font-weight: bold;
 }
 
 button {
@@ -109,10 +105,6 @@ button {
   border-radius: 8px;
   cursor: pointer;
   width: 100%;
-}
-
-button:hover {
-  background: #1ebe5d;
 }
 
 .btn-final {
@@ -130,67 +122,55 @@ button:hover {
   <p>Descanso y estilo para tu hogar</p>
 </header>
 
+<!-- CARRITO -->
 <div id="carritoBarra">
-  🛒 Carrito: <span id="contador">0</span> productos | Total: L.<span id="total">0</span>
+  🛒 <span id="contador">0</span> productos | Total: L.<span id="total">0</span>
   <br>
-  <button onclick="toggleCarrito()" style="margin-top:10px; width:auto;">
-    Ver carrito
-  </button>
-
+  <button onclick="toggleCarrito()" style="width:auto; margin-top:10px;">Ver carrito</button>
   <div id="detalleCarrito" style="display:none;"></div>
 </div>
 
 <!-- EDREDONES -->
 <h2>Edredones</h2>
 <div class="container">
-
-  <div class="producto"><img src="DENVER.jpg"><h3>Edredón Denver</h3><p>L.00</p><button onclick="pedir('Edredón Denver',0)">Pedir</button></div>
-  <div class="producto"><img src="CAPIBARA.jpg"><h3>Edredón Capibara</h3><p>L.00</p><button onclick="pedir('Edredón Capibara',0)">Pedir</button></div>
-  <div class="producto"><img src="COOPER.jpg"><h3>Edredón Cooper</h3><p>L.00</p><button onclick="pedir('Edredón Cooper',0)">Pedir</button></div>
-  <div class="producto"><img src="GALES.jpg"><h3>Edredón Gales</h3><p>L.00</p><button onclick="pedir('Edredón Gales',0)">Pedir</button></div>
-  <div class="producto"><img src="SHADOW.jpg"><h3>Edredón Shadow</h3><p>L.00</p><button onclick="pedir('Edredón Shadow',0)">Pedir</button></div>
-
+  <div class="producto"><img src="DENVER.jpg"><h3>Edredón Denver</h3><button onclick="pedir('Edredón Denver',0)">Pedir</button></div>
+  <div class="producto"><img src="CAPIBARA.jpg"><h3>Edredón Capibara</h3><button onclick="pedir('Edredón Capibara',0)">Pedir</button></div>
+  <div class="producto"><img src="COOPER.jpg"><h3>Edredón Cooper</h3><button onclick="pedir('Edredón Cooper',0)">Pedir</button></div>
+  <div class="producto"><img src="GALES.jpg"><h3>Edredón Gales</h3><button onclick="pedir('Edredón Gales',0)">Pedir</button></div>
+  <div class="producto"><img src="SHADOW.jpg"><h3>Edredón Shadow</h3><button onclick="pedir('Edredón Shadow',0)">Pedir</button></div>
 </div>
 
 <!-- ALMOHADAS -->
 <h2>Almohadas</h2>
 <div class="container">
-
-  <div class="producto"><img src="ALMOHADA VIALIFRESH.jpg"><h3>Almohada Vialifresh</h3><p>L.00</p><button onclick="pedir('Almohada Vialifresh',0)">Pedir</button></div>
-  <div class="producto"><img src="ALMOHADAS ABRAZABLES.jpg"><h3>Almohadas Abrazables</h3><p>L.00</p><button onclick="pedir('Almohadas Abrazables',0)">Pedir</button></div>
-  <div class="producto"><img src="FUNDAS DE ALMOHADAS.jpg"><h3>Fundas de Almohadas</h3><p>L.00</p><button onclick="pedir('Fundas de Almohadas',0)">Pedir</button></div>
-
+  <div class="producto"><img src="ALMOHADA VIALIFRESH.jpg"><h3>Almohada Vialifresh</h3><button onclick="pedir('Almohada Vialifresh',0)">Pedir</button></div>
+  <div class="producto"><img src="ALMOHADAS ABRAZABLES.jpg"><h3>Almohadas Abrazables</h3><button onclick="pedir('Almohadas Abrazables',0)">Pedir</button></div>
+  <div class="producto"><img src="FUNDAS DE ALMOHADAS.jpg"><h3>Fundas de Almohadas</h3><button onclick="pedir('Fundas de Almohadas',0)">Pedir</button></div>
 </div>
 
 <!-- CORTINAS -->
 <h2>Cortinas</h2>
 <div class="container">
-
-  <div class="producto"><img src="CORTINAS BLACHOUT.jpg"><h3>Cortinas Blackout</h3><p>L.00</p><button onclick="pedir('Cortinas Blackout',0)">Pedir</button></div>
-  <div class="producto"><img src="CORTINAS.jpg"><h3>Cortinas</h3><p>L.00</p><button onclick="pedir('Cortinas',0)">Pedir</button></div>
-  <div class="producto"><img src="TRASLUCIDAS.jpg"><h3>Cortinas Traslucidas</h3><p>L.00</p><button onclick="pedir('Cortinas Traslucidas',0)">Pedir</button></div>
-
+  <div class="producto"><img src="CORTINAS BLACHOUT.jpg"><h3>Cortinas Blackout</h3><button onclick="pedir('Cortinas Blackout',0)">Pedir</button></div>
+  <div class="producto"><img src="CORTINAS.jpg"><h3>Cortinas</h3><button onclick="pedir('Cortinas',0)">Pedir</button></div>
+  <div class="producto"><img src="TRASLUCIDAS.jpg"><h3>Cortinas Traslucidas</h3><button onclick="pedir('Cortinas Traslucidas',0)">Pedir</button></div>
 </div>
 
 <!-- SABANAS -->
 <h2>Sábanas</h2>
 <div class="container">
-
-  <div class="producto"><img src="SABANAS.jpg"><h3>Sábanas Queen</h3><p>L.00</p><button onclick="pedir('Sábanas Queen',0)">Pedir</button></div>
-  <div class="producto"><img src="SABANAS JERSEY.jpg"><h3>Sábanas Jersey</h3><p>L.00</p><button onclick="pedir('Sábanas Jersey',0)">Pedir</button></div>
-
+  <div class="producto"><img src="SABANAS.jpg"><h3>Sábanas Queen</h3><button onclick="pedir('Sábanas Queen',0)">Pedir</button></div>
+  <div class="producto"><img src="SABANAS JERSEY.jpg"><h3>Sábanas Jersey</h3><button onclick="pedir('Sábanas Jersey',0)">Pedir</button></div>
 </div>
 
 <!-- COJINES -->
 <h2>Cojines</h2>
 <div class="container">
-
-  <div class="producto"><img src="COLECCION COSTA.jpg"><h3>Cojines Decorativos</h3><p>L.00</p><button onclick="pedir('Cojines Decorativos',0)">Pedir</button></div>
-  <div class="producto"><img src="COJIN FUTBOL.jpg"><h3>Cojin Futbol</h3><p>L.00</p><button onclick="pedir('Cojin Futbol',0)">Pedir</button></div>
-  <div class="producto"><img src="COLECCION NIÑAS.jpg"><h3>Cojines Niñas</h3><p>L.00</p><button onclick="pedir('Cojines Niñas',0)">Pedir</button></div>
-  <div class="producto"><img src="COLECCION LILA BERRY.jpg"><h3>Cojines Lila</h3><p>L.00</p><button onclick="pedir('Cojines Lila',0)">Pedir</button></div>
-  <div class="producto"><img src="COLECCION NIÑOS.jpg"><h3>Cojines Niños</h3><p>L.00</p><button onclick="pedir('Cojines Niños',0)">Pedir</button></div>
-
+  <div class="producto"><img src="COLECCION COSTA.jpg"><h3>Cojines Decorativos</h3><button onclick="pedir('Cojines Decorativos',0)">Pedir</button></div>
+  <div class="producto"><img src="COJIN FUTBOL.jpg"><h3>Cojin Futbol</h3><button onclick="pedir('Cojin Futbol',0)">Pedir</button></div>
+  <div class="producto"><img src="COLECCION NIÑAS.jpg"><h3>Cojines Niñas</h3><button onclick="pedir('Cojines Niñas',0)">Pedir</button></div>
+  <div class="producto"><img src="COLECCION LILA BERRY.jpg"><h3>Cojines Lila</h3><button onclick="pedir('Cojines Lila',0)">Pedir</button></div>
+  <div class="producto"><img src="COLECCION NIÑOS.jpg"><h3>Cojines Niños</h3><button onclick="pedir('Cojines Niños',0)">Pedir</button></div>
 </div>
 
 <button class="btn-final" onclick="enviarPedido()">Enviar pedido por WhatsApp</button>
@@ -199,84 +179,86 @@ button:hover {
 let carrito = [];
 
 function pedir(nombre, precio){
-  let producto = carrito.find(item => item.nombre === nombre);
-
-  if(producto){
-    producto.cantidad += 1;
+  let item = carrito.find(p => p.nombre === nombre);
+  if(item){
+    item.cantidad++;
   } else {
     carrito.push({ nombre, precio, cantidad: 1 });
   }
-
-  actualizarCarrito();
+  actualizar();
 }
 
-function actualizarCarrito(){
-  let totalItems = 0;
+function actualizar(){
   let total = 0;
+  let cantidad = 0;
 
-  carrito.forEach(item => {
-    totalItems += item.cantidad;
-    total += item.precio * item.cantidad;
+  carrito.forEach(p => {
+    total += p.precio * p.cantidad;
+    cantidad += p.cantidad;
   });
 
-  document.getElementById("contador").innerText = totalItems;
+  document.getElementById("contador").innerText = cantidad;
   document.getElementById("total").innerText = total;
 
-  renderCarrito();
+  render();
 }
 
-function renderCarrito(){
-  let contenedor = document.getElementById("detalleCarrito");
+function render(){
+  let div = document.getElementById("detalleCarrito");
 
   if(carrito.length === 0){
-    contenedor.innerHTML = "<p>Carrito vacío</p>";
+    div.innerHTML = "Carrito vacío";
     return;
   }
 
   let html = "";
 
-  carrito.forEach((item, index) => {
+  carrito.forEach((p,i)=>{
     html += `
-      <div class="item-carrito">
-        ${item.nombre} (x${item.cantidad}) - L.${item.precio * item.cantidad}
-        <button class="btn-eliminar" onclick="eliminar(${index})">X</button>
+    <div class="item-carrito">
+      ${p.nombre} x${p.cantidad}
+      <div class="controles">
+        <button class="btn-cantidad" onclick="sumar(${i})">+</button>
+        <button class="btn-cantidad" onclick="restar(${i})">-</button>
+        <button class="btn-eliminar" onclick="eliminar(${i})">X</button>
       </div>
-    `;
+    </div>`;
   });
 
-  contenedor.innerHTML = html;
+  div.innerHTML = html;
 }
 
-function eliminar(index){
-  carrito.splice(index, 1);
-  actualizarCarrito();
+function sumar(i){
+  carrito[i].cantidad++;
+  actualizar();
+}
+
+function restar(i){
+  carrito[i].cantidad--;
+  if(carrito[i].cantidad <= 0){
+    carrito.splice(i,1);
+  }
+  actualizar();
+}
+
+function eliminar(i){
+  carrito.splice(i,1);
+  actualizar();
 }
 
 function toggleCarrito(){
-  let div = document.getElementById("detalleCarrito");
-  div.style.display = (div.style.display === "none") ? "block" : "none";
+  let d = document.getElementById("detalleCarrito");
+  d.style.display = d.style.display === "none" ? "block" : "none";
 }
 
 function enviarPedido(){
-  if(carrito.length === 0){
-    alert("No has agregado productos");
-    return;
-  }
+  let msg = "Hola, quiero pedir:\n\n";
 
-  let numero = "50498001122";
-
-  let mensaje = "Hola, quiero pedir:\n\n";
-
-  carrito.forEach((item, index) => {
-    mensaje += (index + 1) + ". " + item.nombre + " x" + item.cantidad + " - L." + (item.precio * item.cantidad) + "\n";
+  carrito.forEach(p=>{
+    msg += p.nombre + " x" + p.cantidad + "\n";
   });
 
-  let total = carrito.reduce((sum, item) => sum + (item.precio * item.cantidad), 0);
-  mensaje += "\nTotal: L." + total;
-
-  let url = "https://api.whatsapp.com/send?phone=" + numero + "&text=" + encodeURIComponent(mensaje);
-
-  window.open(url, '_blank');
+  window.open("https://api.whatsapp.com/send?phone=50498001122&text=" + encodeURIComponent(msg));
 }
 </script>
 
