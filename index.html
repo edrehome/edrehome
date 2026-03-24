@@ -2,9 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>EdreHome Store</title>
 
 <style>
@@ -26,7 +24,6 @@ header {
   margin-bottom: 10px;
 }
 
-/* 🛒 BARRA CARRITO */
 #carritoBarra {
   background: #fff;
   padding: 12px;
@@ -133,7 +130,6 @@ button:hover {
   <p>Descanso y estilo para tu hogar</p>
 </header>
 
-<!-- 🛒 CARRITO -->
 <div id="carritoBarra">
   🛒 Carrito: <span id="contador">0</span> productos | Total: L.<span id="total">0</span>
   <br>
@@ -161,138 +157,6 @@ button:hover {
     <button onclick="pedir('Edredón Capibara',0)">Pedir</button>
   </div>
 
-  <div class="producto">
-    <img src="COOPER.jpg">
-    <h3>Edredón Cooper</h3>
-    <p>L.00</p>
-    <button onclick="pedir('Edredón Cooper',0)">Pedir</button>
-  </div>
-
-  <div class="producto">
-    <img src="GALES.jpg">
-    <h3>Edredón Gales</h3>
-    <p>L.00</p>
-    <button onclick="pedir('Edredón Gales',0)">Pedir</button>
-  </div>
-
-  <div class="producto">
-    <img src="SHADOW.jpg">
-    <h3>Edredón Shadow</h3>
-    <p>L.00</p>
-    <button onclick="pedir('Edredón Shadow',0)">Pedir</button>
-  </div>
-
-</div>
-
-<h2>Almohadas</h2>
-<div class="container">
-
-  <div class="producto">
-    <img src="ALMOHADA VIALIFRESH.jpg">
-    <h3>Almohada Vialifresh</h3>
-    <p>L.00</p>
-    <button onclick="pedir('Almohada Vialifresh',0)">Pedir</button>
-  </div>
-
-  <div class="producto">
-    <img src="ALMOHADAS ABRAZABLES.jpg">
-    <h3>Almohadas Abrazables</h3>
-    <p>L.00</p>
-    <button onclick="pedir('Almohadas Abrazables',0)">Pedir</button>
-  </div>
-
-  <div class="producto">
-    <img src="FUNDAS DE ALMOHADAS.jpg">
-    <h3>Fundas de Almohadas</h3>
-    <p>L.00</p>
-    <button onclick="pedir('Fundas de Almohadas',0)">Pedir</button>
-  </div>
-
-</div>
-
-<h2>Cortinas</h2>
-<div class="container">
-
-  <div class="producto">
-    <img src="CORTINAS BLACHOUT.jpg">
-    <h3>Cortinas Blackout</h3>
-    <p>L.00</p>
-    <button onclick="pedir('Cortinas Blackout',0)">Pedir</button>
-  </div>
-
-  <div class="producto">
-    <img src="CORTINAS.jpg">
-    <h3>Cortinas</h3>
-    <p>L.00</p>
-    <button onclick="pedir('Cortinas',0)">Pedir</button>
-  </div>
-
-  <div class="producto">
-    <img src="TRASLUCIDAS.jpg">
-    <h3>Cortinas Traslucidas</h3>
-    <p>L.00</p>
-    <button onclick="pedir('Cortinas Traslucidas',0)">Pedir</button>
-  </div>
-
-</div>
-
-<h2>Sábanas</h2>
-<div class="container">
-
-  <div class="producto">
-    <img src="SABANAS.jpg">
-    <h3>Sábanas Queen</h3>
-    <p>L.00</p>
-    <button onclick="pedir('Sábanas Queen',0)">Pedir</button>
-  </div>
-
-  <div class="producto">
-    <img src="SABANAS JERSEY.jpg">
-    <h3>Sábanas Jersey</h3>
-    <p>L.00</p>
-    <button onclick="pedir('Sábanas Jersey',0)">Pedir</button>
-  </div>
-
-</div>
-
-<h2>Cojines</h2>
-<div class="container">
-
-  <div class="producto">
-    <img src="COLECCION COSTA.jpg">
-    <h3>Cojines Decorativos</h3>
-    <p>L.00</p>
-    <button onclick="pedir('Cojines Decorativos',0)">Pedir</button>
-  </div>
-
-  <div class="producto">
-    <img src="COJIN FUTBOL.jpg">
-    <h3>Cojin Futbol</h3>
-    <p>L.00</p>
-    <button onclick="pedir('Cojin Futbol',0)">Pedir</button>
-  </div>
-
-  <div class="producto">
-    <img src="COLECCION NIÑAS.jpg">
-    <h3>Cojines Niñas</h3>
-    <p>L.00</p>
-    <button onclick="pedir('Cojines Niñas',0)">Pedir</button>
-  </div>
-
-  <div class="producto">
-    <img src="COLECCION LILA BERRY.jpg">
-    <h3>Cojines Lila</h3>
-    <p>L.00</p>
-    <button onclick="pedir('Cojines Lila',0)">Pedir</button>
-  </div>
-
-  <div class="producto">
-    <img src="COLECCION NIÑOS.jpg">
-    <h3>Cojines Niños</h3>
-    <p>L.00</p>
-    <button onclick="pedir('Cojines Niños',0)">Pedir</button>
-  </div>
-
 </div>
 
 <button class="btn-final" onclick="enviarPedido()">
@@ -303,17 +167,27 @@ button:hover {
 let carrito = [];
 
 function pedir(nombre, precio){
-  carrito.push({ nombre, precio });
+  let productoExistente = carrito.find(item => item.nombre === nombre);
+
+  if(productoExistente){
+    productoExistente.cantidad += 1;
+  } else {
+    carrito.push({ nombre, precio, cantidad: 1 });
+  }
+
   actualizarCarrito();
-  alert(nombre + " agregado al pedido");
 }
 
 function actualizarCarrito(){
-  document.getElementById("contador").innerText = carrito.length;
-
+  let totalItems = 0;
   let total = 0;
-  carrito.forEach(item => total += item.precio);
 
+  carrito.forEach(item => {
+    totalItems += item.cantidad;
+    total += item.precio * item.cantidad;
+  });
+
+  document.getElementById("contador").innerText = totalItems;
   document.getElementById("total").innerText = total;
 
   renderCarrito();
@@ -332,7 +206,7 @@ function renderCarrito(){
   carrito.forEach((item, index) => {
     html += `
       <div class="item-carrito">
-        ${item.nombre} - L.${item.precio}
+        ${item.nombre} (x${item.cantidad}) - L.${item.precio * item.cantidad}
         <button class="btn-eliminar" onclick="eliminar(${index})">X</button>
       </div>
     `;
@@ -362,10 +236,10 @@ function enviarPedido(){
   let mensaje = "Hola, quiero pedir:\n\n";
 
   carrito.forEach((item, index) => {
-    mensaje += (index + 1) + ". " + item.nombre + " - L." + item.precio + "\n";
+    mensaje += (index + 1) + ". " + item.nombre + " x" + item.cantidad + " - L." + (item.precio * item.cantidad) + "\n";
   });
 
-  let total = carrito.reduce((sum, item) => sum + item.precio, 0);
+  let total = carrito.reduce((sum, item) => sum + (item.precio * item.cantidad), 0);
   mensaje += "\nTotal: L." + total;
 
   let url = "https://api.whatsapp.com/send?phone=" + numero + "&text=" + encodeURIComponent(mensaje);
