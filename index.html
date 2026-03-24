@@ -86,6 +86,14 @@ h2 {
   border-radius: 10px;
 }
 
+/* PRECIO */
+.precio {
+  font-size: 20px;
+  font-weight: bold;
+  color: #2c2c2c;
+  margin: 10px 0;
+}
+
 /* BOTONES */
 button {
   background: #25D366;
@@ -96,10 +104,15 @@ button {
   cursor: pointer;
   width: 100%;
   font-weight: bold;
+  transition: transform 0.1s ease, background 0.2s;
 }
 
 button:hover {
   background: #1ebe5d;
+}
+
+button:active {
+  transform: scale(0.95);
 }
 
 .btn-cantidad {
@@ -113,6 +126,17 @@ button:hover {
 .btn-final {
   margin: 30px;
   font-size: 18px;
+}
+
+/* ANIMACION */
+.producto.agregado {
+  animation: pop 0.3s ease;
+}
+
+@keyframes pop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
 }
 </style>
 </head>
@@ -135,44 +159,44 @@ button:hover {
 <!-- EDREDONES -->
 <h2>Edredones</h2>
 <div class="container">
-  <div class="producto"><img src="DENVER.jpg"><h3>Edredón Denver</h3><button onclick="pedir('Edredón Denver',0)">Pedir</button></div>
-  <div class="producto"><img src="CAPIBARA.jpg"><h3>Edredón Capibara</h3><button onclick="pedir('Edredón Capibara',0)">Pedir</button></div>
-  <div class="producto"><img src="COOPER.jpg"><h3>Edredón Cooper</h3><button onclick="pedir('Edredón Cooper',0)">Pedir</button></div>
-  <div class="producto"><img src="GALES.jpg"><h3>Edredón Gales</h3><button onclick="pedir('Edredón Gales',0)">Pedir</button></div>
-  <div class="producto"><img src="SHADOW.jpg"><h3>Edredón Shadow</h3><button onclick="pedir('Edredón Shadow',0)">Pedir</button></div>
+  <div class="producto"><img src="DENVER.jpg"><h3>Edredón Denver</h3><p class="precio">L.00</p><button onclick="pedir('Edredón Denver',0)">Pedir</button></div>
+  <div class="producto"><img src="CAPIBARA.jpg"><h3>Edredón Capibara</h3><p class="precio">L.00</p><button onclick="pedir('Edredón Capibara',0)">Pedir</button></div>
+  <div class="producto"><img src="COOPER.jpg"><h3>Edredón Cooper</h3><p class="precio">L.00</p><button onclick="pedir('Edredón Cooper',0)">Pedir</button></div>
+  <div class="producto"><img src="GALES.jpg"><h3>Edredón Gales</h3><p class="precio">L.00</p><button onclick="pedir('Edredón Gales',0)">Pedir</button></div>
+  <div class="producto"><img src="SHADOW.jpg"><h3>Edredón Shadow</h3><p class="precio">L.00</p><button onclick="pedir('Edredón Shadow',0)">Pedir</button></div>
 </div>
 
 <!-- ALMOHADAS -->
 <h2>Almohadas</h2>
 <div class="container">
-  <div class="producto"><img src="ALMOHADA VIALIFRESH.jpg"><h3>Almohada Vialifresh</h3><button onclick="pedir('Almohada Vialifresh',0)">Pedir</button></div>
-  <div class="producto"><img src="ALMOHADAS ABRAZABLES.jpg"><h3>Almohadas Abrazables</h3><button onclick="pedir('Almohadas Abrazables',0)">Pedir</button></div>
-  <div class="producto"><img src="FUNDAS DE ALMOHADAS.jpg"><h3>Fundas de Almohadas</h3><button onclick="pedir('Fundas de Almohadas',0)">Pedir</button></div>
+  <div class="producto"><img src="ALMOHADA VIALIFRESH.jpg"><h3>Almohada Vialifresh</h3><p class="precio">L.00</p><button onclick="pedir('Almohada Vialifresh',0)">Pedir</button></div>
+  <div class="producto"><img src="ALMOHADAS ABRAZABLES.jpg"><h3>Almohadas Abrazables</h3><p class="precio">L.00</p><button onclick="pedir('Almohadas Abrazables',0)">Pedir</button></div>
+  <div class="producto"><img src="FUNDAS DE ALMOHADAS.jpg"><h3>Fundas de Almohadas</h3><p class="precio">L.00</p><button onclick="pedir('Fundas de Almohadas',0)">Pedir</button></div>
 </div>
 
 <!-- CORTINAS -->
 <h2>Cortinas</h2>
 <div class="container">
-  <div class="producto"><img src="CORTINAS BLACHOUT.jpg"><h3>Cortinas Blackout</h3><button onclick="pedir('Cortinas Blackout',0)">Pedir</button></div>
-  <div class="producto"><img src="CORTINAS.jpg"><h3>Cortinas</h3><button onclick="pedir('Cortinas',0)">Pedir</button></div>
-  <div class="producto"><img src="TRASLUCIDAS.jpg"><h3>Cortinas Traslucidas</h3><button onclick="pedir('Cortinas Traslucidas',0)">Pedir</button></div>
+  <div class="producto"><img src="CORTINAS BLACHOUT.jpg"><h3>Cortinas Blackout</h3><p class="precio">L.00</p><button onclick="pedir('Cortinas Blackout',0)">Pedir</button></div>
+  <div class="producto"><img src="CORTINAS.jpg"><h3>Cortinas</h3><p class="precio">L.00</p><button onclick="pedir('Cortinas',0)">Pedir</button></div>
+  <div class="producto"><img src="TRASLUCIDAS.jpg"><h3>Cortinas Traslucidas</h3><p class="precio">L.00</p><button onclick="pedir('Cortinas Traslucidas',0)">Pedir</button></div>
 </div>
 
 <!-- SABANAS -->
 <h2>Sábanas</h2>
 <div class="container">
-  <div class="producto"><img src="SABANAS.jpg"><h3>Sábanas Queen</h3><button onclick="pedir('Sábanas Queen',0)">Pedir</button></div>
-  <div class="producto"><img src="SABANAS JERSEY.jpg"><h3>Sábanas Jersey</h3><button onclick="pedir('Sábanas Jersey',0)">Pedir</button></div>
+  <div class="producto"><img src="SABANAS.jpg"><h3>Sábanas Queen</h3><p class="precio">L.00</p><button onclick="pedir('Sábanas Queen',0)">Pedir</button></div>
+  <div class="producto"><img src="SABANAS JERSEY.jpg"><h3>Sábanas Jersey</h3><p class="precio">L.00</p><button onclick="pedir('Sábanas Jersey',0)">Pedir</button></div>
 </div>
 
 <!-- COJINES -->
 <h2>Cojines</h2>
 <div class="container">
-  <div class="producto"><img src="COLECCION COSTA.jpg"><h3>Cojines Decorativos</h3><button onclick="pedir('Cojines Decorativos',0)">Pedir</button></div>
-  <div class="producto"><img src="COJIN FUTBOL.jpg"><h3>Cojin Futbol</h3><button onclick="pedir('Cojin Futbol',0)">Pedir</button></div>
-  <div class="producto"><img src="COLECCION NIÑAS.jpg"><h3>Cojines Niñas</h3><button onclick="pedir('Cojines Niñas',0)">Pedir</button></div>
-  <div class="producto"><img src="COLECCION LILA BERRY.jpg"><h3>Cojines Lila</h3><button onclick="pedir('Cojines Lila',0)">Pedir</button></div>
-  <div class="producto"><img src="COLECCION NIÑOS.jpg"><h3>Cojines Niños</h3><button onclick="pedir('Cojines Niños',0)">Pedir</button></div>
+  <div class="producto"><img src="COLECCION COSTA.jpg"><h3>Cojines Decorativos</h3><p class="precio">L.00</p><button onclick="pedir('Cojines Decorativos',0)">Pedir</button></div>
+  <div class="producto"><img src="COJIN FUTBOL.jpg"><h3>Cojin Futbol</h3><p class="precio">L.00</p><button onclick="pedir('Cojin Futbol',0)">Pedir</button></div>
+  <div class="producto"><img src="COLECCION NIÑAS.jpg"><h3>Cojines Niñas</h3><p class="precio">L.00</p><button onclick="pedir('Cojines Niñas',0)">Pedir</button></div>
+  <div class="producto"><img src="COLECCION LILA BERRY.jpg"><h3>Cojines Lila</h3><p class="precio">L.00</p><button onclick="pedir('Cojines Lila',0)">Pedir</button></div>
+  <div class="producto"><img src="COLECCION NIÑOS.jpg"><h3>Cojines Niños</h3><p class="precio">L.00</p><button onclick="pedir('Cojines Niños',0)">Pedir</button></div>
 </div>
 
 <button class="btn-final" onclick="enviarPedido()">Enviar pedido por WhatsApp</button>
@@ -185,6 +209,16 @@ function guardar(){ localStorage.setItem("carrito", JSON.stringify(carrito)); }
 function pedir(nombre, precio){
   let item = carrito.find(p => p.nombre === nombre);
   item ? item.cantidad++ : carrito.push({ nombre, precio, cantidad:1 });
+
+  // animación
+  let productos = document.querySelectorAll(".producto");
+  productos.forEach(p => {
+    if(p.innerText.includes(nombre)){
+      p.classList.add("agregado");
+      setTimeout(()=> p.classList.remove("agregado"), 300);
+    }
+  });
+
   actualizar();
 }
 
