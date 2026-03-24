@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 
-<!-- 🔥 IMPORTANTE PARA RESPONSIVE -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>EdreHome Store</title>
@@ -15,8 +14,6 @@ body {
   margin: 0;
 }
 
-/* HEADER */
-/* HEADER */
 header {
   background: #2c2c2c;
   color: white;
@@ -24,20 +21,17 @@ header {
   padding: 20px;
 }
 
-/* LOGO */
 .logo {
   width: 120px;
   margin-bottom: 10px;
 }
 
-/* TITULOS */
 h2 {
   margin-left: 30px;
   margin-top: 30px;
   color: #333;
 }
 
-/* GRID RESPONSIVE */
 .container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -45,7 +39,6 @@ h2 {
   padding: 20px 30px;
 }
 
-/* PRODUCTO */
 .producto {
   background: white;
   border-radius: 15px;
@@ -60,7 +53,6 @@ h2 {
   transform: translateY(-5px);
 }
 
-/* 🔥 IMAGEN CORREGIDA */
 .producto img {
   width: 100%;
   height: auto;
@@ -69,7 +61,6 @@ h2 {
   border-radius: 10px;
 }
 
-/* TEXTO */
 .producto h3 {
   margin: 10px 0 5px;
 }
@@ -78,7 +69,6 @@ h2 {
   font-weight: bold;
 }
 
-/* BOTON */
 button {
   background: #25D366;
   color: white;
@@ -92,6 +82,12 @@ button {
 button:hover {
   background: #1ebe5d;
 }
+
+/* BOTON FINAL */
+.btn-final {
+  margin: 30px;
+  font-size: 18px;
+}
 </style>
 </head>
 
@@ -103,7 +99,6 @@ button:hover {
   <p>Descanso y estilo para tu hogar</p>
 </header>
 
-<!-- EDREDONES -->
 <h2>Edredones</h2>
 <div class="container">
 
@@ -111,40 +106,39 @@ button:hover {
     <img src="DENVER.jpg">
     <h3>Edredón Denver</h3>
     <p>L.00</p>
-    <button onclick="pedir('Edredón Denver',00)">Pedir</button>
+    <button onclick="pedir('Edredón Denver',0)">Pedir</button>
   </div>
 
   <div class="producto">
     <img src="CAPIBARA.jpg">
     <h3>Edredón Capibara</h3>
     <p>L.00</p>
-    <button onclick="pedir('Edredón Mulberry',00)">Pedir</button>
+    <button onclick="pedir('Edredón Capibara',0)">Pedir</button>
   </div>
 
   <div class="producto">
     <img src="COOPER.jpg">
     <h3>Edredón Cooper</h3>
     <p>L.00</p>
-    <button onclick="pedir('Edredón Denver',00)">Pedir</button>
+    <button onclick="pedir('Edredón Cooper',0)">Pedir</button>
   </div>
 
   <div class="producto">
     <img src="GALES.jpg">
     <h3>Edredón Gales</h3>
     <p>L.00</p>
-    <button onclick="pedir('Edredón Denver',00)">Pedir</button>
+    <button onclick="pedir('Edredón Gales',0)">Pedir</button>
   </div>
 
   <div class="producto">
     <img src="SHADOW.jpg">
     <h3>Edredón Shadow</h3>
     <p>L.00</p>
-    <button onclick="pedir('Edredón Denver',00)">Pedir</button>
+    <button onclick="pedir('Edredón Shadow',0)">Pedir</button>
   </div>
 
 </div>
 
-<!-- ALMOHADAS -->
 <h2>Almohadas</h2>
 <div class="container">
 
@@ -152,26 +146,25 @@ button:hover {
     <img src="ALMOHADA VIALIFRESH.jpg">
     <h3>Almohada Vialifresh</h3>
     <p>L.00</p>
-    <button onclick="pedir('Almohada Premium',00)">Pedir</button>
+    <button onclick="pedir('Almohada Vialifresh',0)">Pedir</button>
   </div>
 
   <div class="producto">
     <img src="ALMOHADAS ABRAZABLES.jpg">
     <h3>Almohadas Abrazables</h3>
     <p>L.00</p>
-    <button onclick="pedir('Almohada Premium',00)">Pedir</button>
+    <button onclick="pedir('Almohadas Abrazables',0)">Pedir</button>
   </div>
 
   <div class="producto">
     <img src="FUNDAS DE ALMOHADAS.jpg">
     <h3>Fundas de Almohadas</h3>
     <p>L.00</p>
-    <button onclick="pedir('Almohada Premium',00)">Pedir</button>
+    <button onclick="pedir('Fundas de Almohadas',0)">Pedir</button>
   </div>
 
 </div>
 
-<!-- CORTINAS -->
 <h2>Cortinas</h2>
 <div class="container">
 
@@ -179,26 +172,25 @@ button:hover {
     <img src="CORTINAS BLACHOUT.jpg">
     <h3>Cortinas Blackout</h3>
     <p>L.00</p>
-    <button onclick="pedir('Cortinas Elegantes',00)">Pedir</button>
+    <button onclick="pedir('Cortinas Blackout',0)">Pedir</button>
   </div>
 
   <div class="producto">
     <img src="CORTINAS.jpg">
     <h3>Cortinas</h3>
     <p>L.00</p>
-    <button onclick="pedir('Cortinas Elegantes',00)">Pedir</button>
+    <button onclick="pedir('Cortinas',0)">Pedir</button>
   </div>
 
   <div class="producto">
     <img src="TRASLUCIDAS.jpg">
     <h3>Cortinas Traslucidas</h3>
     <p>L.00</p>
-    <button onclick="pedir('Cortinas Elegantes',00)">Pedir</button>
+    <button onclick="pedir('Cortinas Traslucidas',0)">Pedir</button>
   </div>
 
 </div>
 
-<!-- SABANAS -->
 <h2>Sábanas</h2>
 <div class="container">
 
@@ -206,19 +198,18 @@ button:hover {
     <img src="SABANAS.jpg">
     <h3>Sábanas Queen</h3>
     <p>L.00</p>
-    <button onclick="pedir('Sábanas Queen',00)">Pedir</button>
+    <button onclick="pedir('Sábanas Queen',0)">Pedir</button>
   </div>
 
   <div class="producto">
     <img src="SABANAS JERSEY.jpg">
     <h3>Sábanas Jersey</h3>
     <p>L.00</p>
-    <button onclick="pedir('Sábanas Queen',00)">Pedir</button>
+    <button onclick="pedir('Sábanas Jersey',0)">Pedir</button>
   </div>
 
 </div>
 
-<!-- COJINES -->
 <h2>Cojines</h2>
 <div class="container">
 
@@ -226,44 +217,67 @@ button:hover {
     <img src="COLECCION COSTA.jpg">
     <h3>Cojines Decorativos</h3>
     <p>L.00</p>
-    <button onclick="pedir('Cojines Decorativos',00)">Pedir</button>
+    <button onclick="pedir('Cojines Decorativos',0)">Pedir</button>
   </div>
 
   <div class="producto">
     <img src="COJIN FUTBOL.jpg">
     <h3>Cojin Futbol</h3>
     <p>L.00</p>
-    <button onclick="pedir('Edredón Denver',00)">Pedir</button>
+    <button onclick="pedir('Cojin Futbol',0)">Pedir</button>
   </div>
 
   <div class="producto">
     <img src="COLECCION NIÑAS.jpg">
     <h3>Cojines Niñas</h3>
     <p>L.00</p>
-    <button onclick="pedir('Edredón Denver',00)">Pedir</button>
+    <button onclick="pedir('Cojines Niñas',0)">Pedir</button>
   </div>
 
   <div class="producto">
     <img src="COLECCION LILA BERRY.jpg">
     <h3>Cojines Lila</h3>
     <p>L.00</p>
-    <button onclick="pedir('Edredón Denver',00)">Pedir</button>
+    <button onclick="pedir('Cojines Lila',0)">Pedir</button>
   </div>
 
   <div class="producto">
     <img src="COLECCION NIÑOS.jpg">
     <h3>Cojines Niños</h3>
     <p>L.00</p>
-    <button onclick="pedir('Edredón Denver',00)">Pedir</button>
+    <button onclick="pedir('Cojines Niños',0)">Pedir</button>
   </div>
 
 </div>
 
+<button class="btn-final" onclick="enviarPedido()">
+  Enviar pedido por WhatsApp
+</button>
+
 <script>
+let carrito = [];
+
 function pedir(nombre, precio){
-  let numero = "50498001122"; // 🔥 PON TU NÚMERO REAL
-  let mensaje = "Hola, quiero pedir: " + nombre + " Precio: L." + precio;
+  carrito.push({ nombre, precio });
+  alert(nombre + " agregado al pedido");
+}
+
+function enviarPedido(){
+  if(carrito.length === 0){
+    alert("No has agregado productos");
+    return;
+  }
+
+  let numero = "50498001122";
+
+  let mensaje = "Hola, quiero pedir:\n\n";
+
+  carrito.forEach((item, index) => {
+    mensaje += (index + 1) + ". " + item.nombre + " - L." + item.precio + "\n";
+  });
+
   let url = "https://api.whatsapp.com/send?phone=" + numero + "&text=" + encodeURIComponent(mensaje);
+
   window.open(url, '_blank');
 }
 </script>
