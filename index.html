@@ -113,9 +113,9 @@ button {
 <script>
 let carrito = [];
 
-function agregar(nombre, precio){
+function pedir(nombre, precio){
   carrito.push({nombre, precio});
-  alert(nombre + " agregado");
+  alert(nombre + " agregado al pedido");
 }
 
 function enviarPedido(){
@@ -130,7 +130,7 @@ function enviarPedido(){
   let total = 0;
 
   carrito.forEach((item, index) => {
-    mensaje += (index+1) + ". " + item.nombre + " - L." + item.precio + "\n";
+    mensaje += (index + 1) + ". " + item.nombre + " - L." + item.precio + "\n";
     total += item.precio;
   });
 
