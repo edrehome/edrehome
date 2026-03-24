@@ -15,7 +15,7 @@ body {
   animation: fadeIn 0.8s ease-in;
 }
 
-/* HEADER CON FONDO */
+/* HEADER CON FONDO (CORREGIDO) */
 header {
   position: relative;
   color: white;
@@ -23,8 +23,8 @@ header {
   padding: 40px 25px;
   background: url('FONDO CABECERA.jpg') center/cover no-repeat;
 
-  /* PARALLAX */
-  background-attachment: fixed;
+  /* IMPORTANTE: ya NO hay background-attachment */
+  transition: all 0.3s ease;
 }
 
 /* capa oscura */
@@ -153,7 +153,6 @@ button:hover {
 .btn-final { 
   margin:30px; 
   font-size:18px; 
-
   transition: all 0.3s ease;
 }
 
@@ -231,6 +230,7 @@ button:hover {
 <button class="btn-final" onclick="enviarPedido()">Enviar pedido</button>
 
 <script>
+/* TU SCRIPT ORIGINAL SIN CAMBIOS */
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 function guardar(){ localStorage.setItem("carrito", JSON.stringify(carrito)); }
