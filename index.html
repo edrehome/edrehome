@@ -12,10 +12,10 @@ body {
   margin: 0;
 }
 
-/* 🔥 HEADER CON IMAGEN */
+/* 🔥 HEADER AJUSTADO (MENOS ALTO Y MÁS NÍTIDO) */
 header {
   background: 
-    linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+    linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
     url("FONDO CABECERA.jpg");
 
   background-size: cover;
@@ -24,7 +24,14 @@ header {
 
   color: white;
   text-align: center;
-  padding: 40px 20px;
+
+  padding: 25px 20px;
+  min-height: 180px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
   box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
