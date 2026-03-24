@@ -10,6 +10,9 @@ body {
   font-family: 'Segoe UI', sans-serif;
   background: #f2f4f8;
   margin: 0;
+
+  /* ANIMACIÓN */
+  animation: fadeIn 0.8s ease-in;
 }
 
 /* HEADER CON FONDO */
@@ -19,6 +22,9 @@ header {
   text-align: center;
   padding: 40px 25px;
   background: url('FONDO CABECERA.jpg') center/cover no-repeat;
+
+  /* PARALLAX */
+  background-attachment: fixed;
 }
 
 /* capa oscura */
@@ -89,9 +95,27 @@ h2 { margin: 30px; }
   text-align: center;
   box-shadow: 0 8px 20px rgba(0,0,0,0.08);
   position: relative;
+
+  /* EFECTO */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.producto img { width: 100%; border-radius: 10px; }
+.producto:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
+
+.producto img { 
+  width: 100%; 
+  border-radius: 10px;
+
+  /* ZOOM */
+  transition: transform 0.4s ease;
+}
+
+.producto:hover img {
+  transform: scale(1.05);
+}
 
 .badge {
   position: absolute;
@@ -116,9 +140,33 @@ button {
   border-radius: 8px;
   cursor: pointer;
   width: 100%;
+
+  /* EFECTO */
+  transition: all 0.3s ease;
 }
 
-.btn-final { margin:30px; font-size:18px; }
+button:hover {
+  background: #1ebe5d;
+  transform: scale(1.03);
+}
+
+.btn-final { 
+  margin:30px; 
+  font-size:18px; 
+
+  transition: all 0.3s ease;
+}
+
+.btn-final:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* KEYFRAMES */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
 </style>
 </head>
 
