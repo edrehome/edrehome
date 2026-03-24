@@ -2,10 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-
-<!-- 🔥 IMPORTANTE PARA RESPONSIVE -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>EdreHome Store</title>
 
 <style>
@@ -16,7 +13,6 @@ body {
 }
 
 /* HEADER */
-/* HEADER */
 header {
   background: #2c2c2c;
   color: white;
@@ -24,7 +20,6 @@ header {
   padding: 20px;
 }
 
-/* LOGO */
 .logo {
   width: 120px;
   margin-bottom: 10px;
@@ -37,7 +32,7 @@ h2 {
   color: #333;
 }
 
-/* GRID RESPONSIVE */
+/* GRID */
 .container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -53,14 +48,13 @@ h2 {
   text-align: center;
   box-shadow: 0 5px 15px rgba(0,0,0,0.08);
   transition: 0.3s;
-  overflow: hidden;
 }
 
 .producto:hover {
   transform: translateY(-5px);
 }
 
-/* 🔥 IMAGEN CORREGIDA */
+/* IMAGEN */
 .producto img {
   width: 100%;
   height: auto;
@@ -87,10 +81,16 @@ button {
   border-radius: 8px;
   cursor: pointer;
   width: 100%;
+  margin-top: 5px;
 }
 
 button:hover {
   background: #1ebe5d;
+}
+
+/* BOTON FINAL */
+.final {
+  padding: 20px;
 }
 </style>
 </head>
@@ -111,35 +111,35 @@ button:hover {
     <img src="DENVER.jpg">
     <h3>Edredón Denver</h3>
     <p>L.00</p>
-    <button onclick="pedir('Edredón Denver',00)">Pedir</button>
+    <button onclick="agregar('Edredón Denver',0)">Agregar</button>
   </div>
 
   <div class="producto">
     <img src="CAPIBARA.jpg">
     <h3>Edredón Capibara</h3>
     <p>L.00</p>
-    <button onclick="pedir('Edredón Mulberry',00)">Pedir</button>
+    <button onclick="agregar('Edredón Capibara',0)">Agregar</button>
   </div>
 
   <div class="producto">
     <img src="COOPER.jpg">
     <h3>Edredón Cooper</h3>
     <p>L.00</p>
-    <button onclick="pedir('Edredón Denver',00)">Pedir</button>
+    <button onclick="agregar('Edredón Cooper',0)">Agregar</button>
   </div>
 
   <div class="producto">
     <img src="GALES.jpg">
     <h3>Edredón Gales</h3>
     <p>L.00</p>
-    <button onclick="pedir('Edredón Denver',00)">Pedir</button>
+    <button onclick="agregar('Edredón Gales',0)">Agregar</button>
   </div>
 
   <div class="producto">
     <img src="SHADOW.jpg">
     <h3>Edredón Shadow</h3>
     <p>L.00</p>
-    <button onclick="pedir('Edredón Denver',00)">Pedir</button>
+    <button onclick="agregar('Edredón Shadow',0)">Agregar</button>
   </div>
 
 </div>
@@ -152,21 +152,14 @@ button:hover {
     <img src="ALMOHADA VIALIFRESH.jpg">
     <h3>Almohada Vialifresh</h3>
     <p>L.00</p>
-    <button onclick="pedir('Almohada Premium',00)">Pedir</button>
+    <button onclick="agregar('Almohada Vialifresh',0)">Agregar</button>
   </div>
 
   <div class="producto">
     <img src="ALMOHADAS ABRAZABLES.jpg">
     <h3>Almohadas Abrazables</h3>
     <p>L.00</p>
-    <button onclick="pedir('Almohada Premium',00)">Pedir</button>
-  </div>
-
-  <div class="producto">
-    <img src="FUNDAS DE ALMOHADAS.jpg">
-    <h3>Fundas de Almohadas</h3>
-    <p>L.00</p>
-    <button onclick="pedir('Almohada Premium',00)">Pedir</button>
+    <button onclick="agregar('Almohadas Abrazables',0)">Agregar</button>
   </div>
 
 </div>
@@ -179,91 +172,44 @@ button:hover {
     <img src="CORTINAS BLACHOUT.jpg">
     <h3>Cortinas Blackout</h3>
     <p>L.00</p>
-    <button onclick="pedir('Cortinas Elegantes',00)">Pedir</button>
-  </div>
-
-  <div class="producto">
-    <img src="CORTINAS.jpg">
-    <h3>Cortinas</h3>
-    <p>L.00</p>
-    <button onclick="pedir('Cortinas Elegantes',00)">Pedir</button>
-  </div>
-
-  <div class="producto">
-    <img src="TRASLUCIDAS.jpg">
-    <h3>Cortinas Traslucidas</h3>
-    <p>L.00</p>
-    <button onclick="pedir('Cortinas Elegantes',00)">Pedir</button>
+    <button onclick="agregar('Cortinas Blackout',0)">Agregar</button>
   </div>
 
 </div>
 
-<!-- SABANAS -->
-<h2>Sábanas</h2>
-<div class="container">
-
-  <div class="producto">
-    <img src="SABANAS.jpg">
-    <h3>Sábanas Queen</h3>
-    <p>L.00</p>
-    <button onclick="pedir('Sábanas Queen',00)">Pedir</button>
-  </div>
-
-  <div class="producto">
-    <img src="SABANAS JERSEY.jpg">
-    <h3>Sábanas Jersey</h3>
-    <p>L.00</p>
-    <button onclick="pedir('Sábanas Queen',00)">Pedir</button>
-  </div>
-
-</div>
-
-<!-- COJINES -->
-<h2>Cojines</h2>
-<div class="container">
-
-  <div class="producto">
-    <img src="COLECCION COSTA.jpg">
-    <h3>Cojines Decorativos</h3>
-    <p>L.00</p>
-    <button onclick="pedir('Cojines Decorativos',00)">Pedir</button>
-  </div>
-
-  <div class="producto">
-    <img src="COJIN FUTBOL.jpg">
-    <h3>Cojin Futbol</h3>
-    <p>L.00</p>
-    <button onclick="pedir('Edredón Denver',00)">Pedir</button>
-  </div>
-
-  <div class="producto">
-    <img src="COLECCION NIÑAS.jpg">
-    <h3>Cojines Niñas</h3>
-    <p>L.00</p>
-    <button onclick="pedir('Edredón Denver',00)">Pedir</button>
-  </div>
-
-  <div class="producto">
-    <img src="COLECCION LILA BERRY.jpg">
-    <h3>Cojines Lila</h3>
-    <p>L.00</p>
-    <button onclick="pedir('Edredón Denver',00)">Pedir</button>
-  </div>
-
-  <div class="producto">
-    <img src="COLECCION NIÑOS.jpg">
-    <h3>Cojines Niños</h3>
-    <p>L.00</p>
-    <button onclick="pedir('Edredón Denver',00)">Pedir</button>
-  </div>
-
+<!-- BOTON FINAL -->
+<div class="final">
+  <button onclick="enviarPedido()">Enviar pedido por WhatsApp</button>
 </div>
 
 <script>
-function pedir(nombre, precio){
-  let numero = "50498001122"; // 🔥 PON TU NÚMERO REAL
-  let mensaje = "Hola, quiero pedir: " + nombre + " Precio: L." + precio;
+let carrito = [];
+
+function agregar(nombre, precio){
+  carrito.push({nombre, precio});
+  alert(nombre + " agregado");
+}
+
+function enviarPedido(){
+  if(carrito.length === 0){
+    alert("No has agregado productos");
+    return;
+  }
+
+  let numero = "50498001122";
+
+  let mensaje = "Hola, quiero pedir:\n\n";
+  let total = 0;
+
+  carrito.forEach((item, index) => {
+    mensaje += (index+1) + ". " + item.nombre + "\n";
+    total += item.precio;
+  });
+
+  mensaje += "\nTotal: L." + total;
+
   let url = "https://api.whatsapp.com/send?phone=" + numero + "&text=" + encodeURIComponent(mensaje);
+
   window.open(url, '_blank');
 }
 </script>
