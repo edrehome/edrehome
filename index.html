@@ -251,23 +251,28 @@ function eliminar(i){
   actualizar();
 }
 
-function toggleCarrito(){
-  let d = document.getElementById("detalleCarrito");
-  d.style.display = d.style.display === "none" ? "block" : "none";
-}
 
 function enviarPedido(){
+  if(carrito.length === 0){
+    alert("No has agregado productos");
+    return;
+  }
+
   let msg = "Hola, quiero pedir:\n\n";
 
   carrito.forEach(p=>{
     msg += p.nombre + " x" + p.cantidad + "\n";
   });
 
+  // 🔥 abrir WhatsApp
   window.open("https://api.whatsapp.com/send?phone=50498001122&text=" + encodeURIComponent(msg));
-}
 
-// 🔥 INICIALIZAR
-actualizar();
+  // 🔥 LIMPIAR CARRITO
+  carrito = [];
+  localStorage.removeItem("carrito");
+
+  actualizar(); // refresca pantalla
+}
 </script>
 
 </body>
