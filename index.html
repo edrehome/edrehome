@@ -464,12 +464,19 @@ function guardar(){
 function pedir(e, nombre, precio){
 
   let contenedor = e.target.closest(".producto");
-  let tallaSeleccionada = contenedor.querySelector(".talla.activa");
+  let bloqueTallas = contenedor.querySelector(".tallas");
+let tallaSeleccionada = contenedor.querySelector(".talla.activa");
 
+let talla = null;
+
+// 👇 SOLO si tiene tallas
+if(bloqueTallas){
   if(!tallaSeleccionada){
     alert("Selecciona una talla antes de pedir");
     return;
   }
+  talla = tallaSeleccionada.innerText;
+}
 
   let talla = tallaSeleccionada.innerText;
 
@@ -479,7 +486,9 @@ function pedir(e, nombre, precio){
     e.target.classList.add("pop");
   }
 
-  let item = carrito.find(p => p.nombre === nombre && p.talla === talla);
+  let item = carrito.find(p => 
+  p.nombre === nombre && (p.talla || null) === talla
+);
 
   if(item){
     item.cantidad++;
@@ -495,7 +504,9 @@ function pedir(e, nombre, precio){
   barra.classList.add("vibrar");
 
   let msg = document.getElementById("mensaje");
-  msg.innerText = nombre + " (" + talla + ") agregado";
+  msg.innerText = talla 
+  ? nombre + " (" + talla + ") agregado"
+  : nombre + " agregado";
   msg.classList.remove("mostrar");
   void msg.offsetWidth;
   msg.classList.add("mostrar");
