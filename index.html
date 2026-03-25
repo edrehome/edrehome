@@ -552,19 +552,29 @@ carrito.push({ nombre, precio: precioFinal, cantidad:1, talla });
 }
  
 function actualizar(){
-  let total=0,cantidad=0;
-  carrito.forEach(p=>{ total+=p.precio*p.cantidad; cantidad+=p.cantidad; });
-  document.getElementById("contador").innerText=cantidad;
-  document.getElementById("total").innerText=total;
-  guardar(); 
-render();
+  let total = 0, cantidad = 0;
 
-let btn = document.getElementById("btnFlotante");
+  carrito.forEach(p=>{
+    total += p.precio * p.cantidad; 
+    cantidad += p.cantidad;
+  });
 
-if(carrito.length === 0){
-  btn.classList.add("oculto");
-} else {
-  btn.classList.remove("oculto");
+  document.getElementById("contador").innerText = cantidad;
+  document.getElementById("total").innerText = total;
+
+  guardar();
+  render();
+
+  // 👇 CONTROL BOTON FLOTANTE
+  let btn = document.getElementById("btnFlotante");
+
+  if(btn){ // 🔥 evita errores si no existe
+    if(carrito.length === 0){
+      btn.classList.add("oculto");
+    } else {
+      btn.classList.remove("oculto");
+    }
+  }
 }
 
 function render(){
