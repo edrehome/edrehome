@@ -534,7 +534,7 @@ function render(){
 
     return `
     <div class="item-carrito">
-      <span>${p.nombre} x${p.cantidad} - L.${subtotal}</span>
+      <span>${p.nombre}${p.talla ? " (" + p.talla + ")" : ""} x${p.cantidad} - L.${subtotal}</span>
       <div>
         <button class="btn-sumar" onclick="sumar(${i})">+</button>
         <button class="btn-restar" onclick="restar(${i})">-</button>
