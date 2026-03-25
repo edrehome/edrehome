@@ -502,35 +502,7 @@ function pedir(e, nombre, precio){
 
   setTimeout(()=>msg.classList.remove("mostrar"),2000);
 }
-
-
  
-    e.target.classList.remove("pop");
-    void e.target.offsetWidth;
-    e.target.classList.add("pop");
-  }
-
-  
-
-  actualizar();
-
-  // vibrar carrito (forzado)
-  let barra = document.getElementById("carritoBarra");
-  barra.classList.remove("vibrar");
-  void barra.offsetWidth;
-  barra.classList.add("vibrar");
-
-  // popup mensaje (forzado)
-  let msg = document.getElementById("mensaje");
-  msg.innerText = nombre + " agregado al carrito";
-
-  msg.classList.remove("mostrar");
-  void msg.offsetWidth;
-  msg.classList.add("mostrar");
-
-  setTimeout(()=>msg.classList.remove("mostrar"),2000);
-}
-
 function actualizar(){
   let total=0,cantidad=0;
   carrito.forEach(p=>{ total+=p.precio*p.cantidad; cantidad+=p.cantidad; });
