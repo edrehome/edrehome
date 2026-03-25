@@ -456,11 +456,13 @@ button {
 
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
-function guardar(){ localStorage.setItem("carrito", JSON.stringify(carrito)); }
+function guardar(){ 
+  localStorage.setItem("carrito", JSON.stringify(carrito)); 
+}
 
+/* 👇 AQUÍ PEGÁS LA NUEVA función pedir */
 function pedir(e, nombre, precio){
 
-  // 🔍 buscar talla seleccionada
   let contenedor = e.target.closest(".producto");
   let tallaSeleccionada = contenedor.querySelector(".talla.activa");
 
@@ -471,14 +473,12 @@ function pedir(e, nombre, precio){
 
   let talla = tallaSeleccionada.innerText;
 
-  // animación botón
   if(e && e.target){
     e.target.classList.remove("pop");
     void e.target.offsetWidth;
     e.target.classList.add("pop");
   }
 
-  // 🔥 guardar con talla
   let item = carrito.find(p => p.nombre === nombre && p.talla === talla);
 
   if(item){
@@ -489,13 +489,11 @@ function pedir(e, nombre, precio){
 
   actualizar();
 
-  // vibrar carrito
   let barra = document.getElementById("carritoBarra");
   barra.classList.remove("vibrar");
   void barra.offsetWidth;
   barra.classList.add("vibrar");
 
-  // mensaje
   let msg = document.getElementById("mensaje");
   msg.innerText = nombre + " (" + talla + ") agregado";
   msg.classList.remove("mostrar");
@@ -505,15 +503,14 @@ function pedir(e, nombre, precio){
   setTimeout(()=>msg.classList.remove("mostrar"),2000);
 }
 
-  // animación botón (forzada)
-  if(e && e.target){
+
+ 
     e.target.classList.remove("pop");
     void e.target.offsetWidth;
     e.target.classList.add("pop");
   }
 
-  let item = carrito.find(p => p.nombre === nombre);
-  item ? item.cantidad++ : carrito.push({ nombre, precio, cantidad:1 });
+  
 
   actualizar();
 
