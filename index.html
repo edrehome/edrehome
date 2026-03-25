@@ -316,7 +316,22 @@ button {
   <p class="precio-descuento">899</p>
   <button onclick="pedir(event,'Edredón Denver',899)">Pedir</button>
 </div>
-  <div class="producto"><img src="CAPIBARA.jpg"><h3>Edredón Capibara</h3><p class="precio-descuento">950</p><button onclick="pedir(event,'Edredón Capibara',950)">Pedir</button></div>
+  <div class="producto">
+  <span class="badge">OFERTA</span>
+
+  <div class="galeria">
+    <img id="img-2" src="CAPIBARA.jpg" class="img-principal">
+
+    <div class="miniaturas">
+      <img src="CAPIBARA2.jpg" onclick="cambiarImagen(this,'img-2')">
+    </div>
+  </div>
+
+  <h3>Edredón Capibara</h3>
+  <p class="precio-original">1200</p>
+  <p class="precio-descuento">899</p>
+  <button onclick="pedir(event,'Edredón Capibara',899)">Pedir</button>
+</div>
   <div class="producto"><img src="COOPER.jpg"><h3>Edredón Cooper</h3><p class="precio-descuento">850</p><button onclick="pedir(event,'Edredón Cooper',850)">Pedir</button></div>
   <div class="producto"><img src="GALES.jpg"><h3>Edredón Gales</h3><p class="precio-descuento">980</p><button onclick="pedir(event,'Edredón Gales',980)">Pedir</button></div>
   <div class="producto"><img src="SHADOW.jpg"><h3>Edredón Shadow</h3><p class="precio-descuento">920</p><button onclick="pedir(event,'Edredón Shadow',920)">Pedir</button></div>
