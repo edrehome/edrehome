@@ -570,7 +570,7 @@ function enviarPedido(){
   carrito.forEach(p=>{
     let subtotal = p.precio * p.cantidad;
     total += subtotal;
-    msg += p.nombre + " x" + p.cantidad + " - L." + subtotal + "\n";
+    msg += p.nombre + (p.talla ? " (" + p.talla + ")" : "") + " x" + p.cantidad + " - L." + subtotal + "\n";
   });
 
   msg += "\nTotal: L." + total;
