@@ -685,6 +685,12 @@ function cambiarImagen(img, id){
   contenedor.dataset.precio = precio;
 }
 actualizar();
+
+// 👇 REGISTRAR SERVICE WORKER
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("sw.js")
+      .then(() => console.log("SW registrado"));
+  }
 </script>
 
 </body>
