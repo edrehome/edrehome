@@ -319,6 +319,24 @@ button {
   z-index: 9999;
 }
 
+  /* 👇 BOTON FLOTANTE */
+#btnFlotante {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: auto;
+  padding: 14px 18px;
+  border-radius: 50px;
+  font-size: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  z-index: 9999;
+}
+
+/* 👇 OCULTAR BOTON */
+#btnFlotante.oculto {
+  display: none;
+}
+
 #btnFlotante:hover {
   transform: scale(1.05);
 }
@@ -538,7 +556,15 @@ function actualizar(){
   carrito.forEach(p=>{ total+=p.precio*p.cantidad; cantidad+=p.cantidad; });
   document.getElementById("contador").innerText=cantidad;
   document.getElementById("total").innerText=total;
-  guardar(); render();
+  guardar(); 
+render();
+
+let btn = document.getElementById("btnFlotante");
+
+if(carrito.length === 0){
+  btn.classList.add("oculto");
+} else {
+  btn.classList.remove("oculto");
 }
 
 function render(){
