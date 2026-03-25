@@ -603,6 +603,15 @@ function cambiarImagen(img, id){
   document.getElementById(id).src = img.src;
 }
 
+  function seleccionarTalla(btn){
+  let contenedor = btn.parentElement;
+
+  contenedor.querySelectorAll(".talla")
+    .forEach(b => b.classList.remove("activa"));
+
+  btn.classList.add("activa");
+}
+
 actualizar();
 </script>
 
