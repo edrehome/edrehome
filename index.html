@@ -247,10 +247,11 @@ let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 function guardar(){ localStorage.setItem("carrito", JSON.stringify(carrito)); }
 
-function pedir(nombre, precio){
-  if(event && event.target){
-    event.target.classList.add("pop");
-    setTimeout(()=>event.target.classList.remove("pop"),300);
+function pedir(e, nombre, precio){
+
+  if(e && e.target){
+    e.target.classList.add("pop");
+    setTimeout(()=>e.target.classList.remove("pop"),300);
   }
 
   let item = carrito.find(p => p.nombre === nombre);
