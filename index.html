@@ -44,8 +44,20 @@ header * {
 }
 
 .logo { 
-  width: 120px; 
-  filter: drop-shadow(0 0 10px rgba(0,0,0,0.7));
+  width: 120px;
+  border-radius: 20px; /* suaviza esquinas */
+  padding: 6px;
+
+  background: rgba(255,255,255,0.05); /* 🔥 blanco MUY suave */
+  backdrop-filter: blur(8px); /* difuminado */
+
+  filter: drop-shadow(0 8px 15px rgba(0,0,0,0.4)); /* sombra más elegante */
+  transition: all 0.3s ease;
+}
+
+/* efecto al pasar mouse */
+.logo:hover {
+  transform: scale(1.05);
 }
 
 /* CARRITO PREMIUM */
