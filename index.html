@@ -460,6 +460,51 @@ function guardar(){ localStorage.setItem("carrito", JSON.stringify(carrito)); }
 
 function pedir(e, nombre, precio){
 
+  // 🔍 buscar talla seleccionada
+  let contenedor = e.target.closest(".producto");
+  let tallaSeleccionada = contenedor.querySelector(".talla.activa");
+
+  if(!tallaSeleccionada){
+    alert("Selecciona una talla antes de pedir");
+    return;
+  }
+
+  let talla = tallaSeleccionada.innerText;
+
+  // animación botón
+  if(e && e.target){
+    e.target.classList.remove("pop");
+    void e.target.offsetWidth;
+    e.target.classList.add("pop");
+  }
+
+  // 🔥 guardar con talla
+  let item = carrito.find(p => p.nombre === nombre && p.talla === talla);
+
+  if(item){
+    item.cantidad++;
+  } else {
+    carrito.push({ nombre, precio, cantidad:1, talla });
+  }
+
+  actualizar();
+
+  // vibrar carrito
+  let barra = document.getElementById("carritoBarra");
+  barra.classList.remove("vibrar");
+  void barra.offsetWidth;
+  barra.classList.add("vibrar");
+
+  // mensaje
+  let msg = document.getElementById("mensaje");
+  msg.innerText = nombre + " (" + talla + ") agregado";
+  msg.classList.remove("mostrar");
+  void msg.offsetWidth;
+  msg.classList.add("mostrar");
+
+  setTimeout(()=>msg.classList.remove("mostrar"),2000);
+}
+
   // animación botón (forzada)
   if(e && e.target){
     e.target.classList.remove("pop");
