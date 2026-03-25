@@ -232,6 +232,40 @@ button {
   opacity: 1;
 }
 
+/* ===== GALERIA PRODUCTO ===== */
+
+.galeria {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.img-principal {
+  width: 100%;
+  border-radius: 12px;
+}
+
+.miniaturas {
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+}
+
+.miniaturas img {
+  width: 45px;
+  height: 45px;
+  object-fit: cover;
+  border-radius: 6px;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: 0.2s;
+}
+
+.miniaturas img:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
 </style>
 </head>
 
@@ -264,7 +298,24 @@ button {
 <div class="categoria" data-categoria="Edredones">
 <h2>Edredones</h2>
 <div class="container">
-  <div class="producto"><span class="badge">OFERTA</span><img src="DENVER.jpg"><h3>Edredón Denver</h3><p class="precio-original">1200</p><p class="precio-descuento">899</p><button onclick="pedir(event,'Edredón Denver',899)">Pedir</button></div>
+  <div class="producto">
+  <span class="badge">OFERTA</span>
+
+  <div class="galeria">
+    <img id="img-1" src="DENVER.jpg" class="img-principal">
+
+    <div class="miniaturas">
+      <img src="DENVER.jpg" onclick="cambiarImagen(this,'img-1')">
+      <img src="CAPIBARA.jpg" onclick="cambiarImagen(this,'img-1')">
+      <img src="COOPER.jpg" onclick="cambiarImagen(this,'img-1')">
+    </div>
+  </div>
+
+  <h3>Edredón Denver</h3>
+  <p class="precio-original">1200</p>
+  <p class="precio-descuento">899</p>
+  <button onclick="pedir(event,'Edredón Denver',899)">Pedir</button>
+</div>
   <div class="producto"><img src="CAPIBARA.jpg"><h3>Edredón Capibara</h3><p class="precio-descuento">950</p><button onclick="pedir(event,'Edredón Capibara',950)">Pedir</button></div>
   <div class="producto"><img src="COOPER.jpg"><h3>Edredón Cooper</h3><p class="precio-descuento">850</p><button onclick="pedir(event,'Edredón Cooper',850)">Pedir</button></div>
   <div class="producto"><img src="GALES.jpg"><h3>Edredón Gales</h3><p class="precio-descuento">980</p><button onclick="pedir(event,'Edredón Gales',980)">Pedir</button></div>
@@ -439,6 +490,10 @@ function filtrarCategoria(categoria, e) {
       sec.style.display = 'none';
     }
   });
+}
+  /* 👇 PEGALO AQUÍ */
+function cambiarImagen(img, id){
+  document.getElementById(id).src = img.src;
 }
 
 actualizar();
