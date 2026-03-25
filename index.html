@@ -351,17 +351,28 @@ function actualizar(){
 }
 
 function render(){
-  let div=document.getElementById("detalleCarrito");
-  if(!carrito.length){ div.innerHTML="Vacío"; return;}
-  div.innerHTML=carrito.map((p,i)=>`
-  <div class="item-carrito">
-    ${p.nombre} x${p.cantidad}
-    <div>
-      <button class="btn-sumar" onclick="sumar(${i})">+</button>
-      <button class="btn-restar" onclick="restar(${i})">-</button>
-      <button class="btn-eliminar" onclick="eliminar(${i})">X</button>
+  let div = document.getElementById("detalleCarrito");
+
+  if(!carrito.length){ 
+    div.innerHTML = "Vacío"; 
+    return;
+  }
+
+  div.innerHTML = carrito.map((p,i)=>{
+
+    let subtotal = p.precio * p.cantidad;
+
+    return `
+    <div class="item-carrito">
+      <span>${p.nombre} x${p.cantidad} - L.${subtotal}</span>
+      <div>
+        <button class="btn-sumar" onclick="sumar(${i})">+</button>
+        <button class="btn-restar" onclick="restar(${i})">-</button>
+        <button class="btn-eliminar" onclick="eliminar(${i})">X</button>
+      </div>
     </div>
-  </div>`).join('');
+    `;
+  }).join('');
 }
 
 function sumar(i){ carrito[i].cantidad++; actualizar(); }
