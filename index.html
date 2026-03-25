@@ -7,19 +7,12 @@
 
 <style>
 
-/* ===== FIX RESPONSIVE (AGREGADO SIN ROMPER NADA) ===== */
+/* ===== FIX RESPONSIVE ===== */
 * { box-sizing: border-box; }
+html { width: 100%; overflow-x: hidden; }
+body { overflow-x: hidden; }
 
-html {
-  width: 100%;
-  overflow-x: hidden;
-}
-
-body {
-  overflow-x: hidden;
-}
-
-/* ===== TU CSS ORIGINAL COMPLETO ===== */
+/* ===== TU CSS ORIGINAL ===== */
 
 body {
   font-family: 'Segoe UI', sans-serif;
@@ -63,9 +56,6 @@ header * {
   text-align: center;
   font-weight: bold;
   position: relative;
-  /*top: 0;*/
-  /*z-index: 1000;*/
-  /*box-shadow: 0 4px 15px rgba(0,0,0,0.1);*/
 }
 
 #detalleCarrito {
@@ -88,15 +78,14 @@ header * {
 
 h2 { margin: 30px; }
 
-/* 🔧 SOLO AJUSTE SEGURO */
 .container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 20px;
-  padding: 0 15px 20px; /* 👈 único ajuste */
+  padding: 0 15px 20px;
 }
 
-/* PRODUCTOS PREMIUM */
+/* PRODUCTOS */
 .producto {
   background: rgba(255,255,255,0.95);
   backdrop-filter: blur(8px);
@@ -113,18 +102,9 @@ h2 { margin: 30px; }
   box-shadow: 0 15px 30px rgba(0,0,0,0.15);
 }
 
-/* 🔧 FIX IMAGEN */
 .producto img { 
   width: 100%; 
-  max-width: 100%;
-  height: auto;
-  display: block;
   border-radius: 12px;
-  transition: transform 0.4s ease;
-}
-
-.producto:hover img {
-  transform: scale(1.07);
 }
 
 .badge {
@@ -140,7 +120,6 @@ h2 { margin: 30px; }
 .precio-original { text-decoration: line-through; color:#999; }
 .precio-descuento { font-size:20px; font-weight:bold; color:#28a745; }
 
-/* BOTONES PREMIUM */
 button {
   background: linear-gradient(135deg, #25D366, #1ebe5d);
   color: white;
@@ -149,53 +128,34 @@ button {
   border-radius: 10px;
   cursor: pointer;
   width: 100%;
-  transition: all 0.3s ease;
-  font-weight: bold;
-}
-
-button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
 .btn-final { margin:30px; font-size:18px; }
 
-/* ANIMACIONES */
-@keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
+/* 🔥 FILTRO */
+#filtros {
+  display: flex;
+  gap: 10px;
+  padding: 10px 15px;
+  overflow-x: auto;
+  background: white;
+}
 
-@keyframes pop {
-  0%{transform:scale(1);}
-  50%{transform:scale(1.2);}
-  100%{transform:scale(1);}
+.filtro-btn {
+  background: #eee;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  width: auto;
 }
-.pop{animation:pop 0.3s;}
 
-@keyframes vibrar {
-  0%{transform:translateX(0);}
-  25%{transform:translateX(-3px);}
-  50%{transform:translateX(3px);}
-  75%{transform:translateX(-3px);}
-  100%{transform:translateX(0);}
+.filtro-btn.activo {
+  background: #ff4d6d;
+  color: white;
 }
-.vibrar{animation:vibrar 0.3s;}
 
-#mensaje{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  background:#25D366;
-  color:white;
-  padding:12px 18px;
-  border-radius:8px;
-  opacity:0;
-  transform:translateY(20px);
-  transition:0.4s;
-  z-index:9999;
-}
-#mensaje.mostrar{
-  opacity:1;
-  transform:translateY(0);
-}
 </style>
 </head>
 
@@ -214,7 +174,18 @@ button:hover {
   <div id="detalleCarrito" style="display:none;"></div>
 </div>
 
+<!-- FILTRO -->
+<div id="filtros">
+  <button class="filtro-btn activo" onclick="filtrarCategoria('todos', event)">Todos</button>
+  <button class="filtro-btn" onclick="filtrarCategoria('Edredones', event)">Edredones</button>
+  <button class="filtro-btn" onclick="filtrarCategoria('Almohadas', event)">Almohadas</button>
+  <button class="filtro-btn" onclick="filtrarCategoria('Cortinas', event)">Cortinas</button>
+  <button class="filtro-btn" onclick="filtrarCategoria('Sábanas', event)">Sábanas</button>
+  <button class="filtro-btn" onclick="filtrarCategoria('Cojines', event)">Cojines</button>
+</div>
+
 <!-- EDREDONES -->
+<div class="categoria" data-categoria="Edredones">
 <h2>Edredones</h2>
 <div class="container">
   <div class="producto"><span class="badge">OFERTA</span><img src="DENVER.jpg"><h3>Edredón Denver</h3><p class="precio-original">1200</p><p class="precio-descuento">899</p><button onclick="pedir(event,'Edredón Denver',899)">Pedir</button></div>
@@ -223,31 +194,39 @@ button:hover {
   <div class="producto"><img src="GALES.jpg"><h3>Edredón Gales</h3><p class="precio-descuento">980</p><button onclick="pedir(event,'Edredón Gales',980)">Pedir</button></div>
   <div class="producto"><img src="SHADOW.jpg"><h3>Edredón Shadow</h3><p class="precio-descuento">920</p><button onclick="pedir(event,'Edredón Shadow',920)">Pedir</button></div>
 </div>
+</div>
 
 <!-- ALMOHADAS -->
+<div class="categoria" data-categoria="Almohadas">
 <h2>Almohadas</h2>
 <div class="container">
   <div class="producto"><img src="ALMOHADA VIALIFRESH.jpg"><h3>Almohada Vialifresh</h3><p class="precio-descuento">300</p><button onclick="pedir(event,'Almohada Vialifresh',300)">Pedir</button></div>
   <div class="producto"><img src="ALMOHADAS ABRAZABLES.jpg"><h3>Almohadas Abrazables</h3><p class="precio-descuento">280</p><button onclick="pedir(event,'Almohadas Abrazables',280)">Pedir</button></div>
   <div class="producto"><img src="FUNDAS DE ALMOHADAS.jpg"><h3>Fundas de Almohadas</h3><p class="precio-descuento">200</p><button onclick="pedir(event,'Fundas de Almohadas',200)">Pedir</button></div>
 </div>
+</div>
 
 <!-- CORTINAS -->
+<div class="categoria" data-categoria="Cortinas">
 <h2>Cortinas</h2>
 <div class="container">
   <div class="producto"><img src="CORTINAS BLACHOUT.jpg"><h3>Cortinas Blackout</h3><p class="precio-descuento">600</p><button onclick="pedir(event,'Cortinas Blackout',600)">Pedir</button></div>
   <div class="producto"><img src="CORTINAS.jpg"><h3>Cortinas</h3><p class="precio-descuento">500</p><button onclick="pedir(event,'Cortinas',500)">Pedir</button></div>
   <div class="producto"><img src="TRASLUCIDAS.jpg"><h3>Cortinas Traslucidas</h3><p class="precio-descuento">550</p><button onclick="pedir(event,'Cortinas Traslucidas',550)">Pedir</button></div>
 </div>
+</div>
 
 <!-- SABANAS -->
+<div class="categoria" data-categoria="Sábanas">
 <h2>Sábanas</h2>
 <div class="container">
   <div class="producto"><img src="SABANAS.jpg"><h3>Sábanas Queen</h3><p class="precio-descuento">400</p><button onclick="pedir(event,'Sábanas Queen',400)">Pedir</button></div>
   <div class="producto"><img src="SABANAS JERSEY.jpg"><h3>Sábanas Jersey</h3><p class="precio-descuento">420</p><button onclick="pedir(event,'Sábanas Jersey',420)">Pedir</button></div>
 </div>
+</div>
 
 <!-- COJINES -->
+<div class="categoria" data-categoria="Cojines">
 <h2>Cojines</h2>
 <div class="container">
   <div class="producto"><img src="COLECCION COSTA.jpg"><h3>Cojines Decorativos</h3><p class="precio-descuento">150</p><button onclick="pedir(event,'Cojines Decorativos',150)">Pedir</button></div>
@@ -256,12 +235,14 @@ button:hover {
   <div class="producto"><img src="COLECCION LILA BERRY.jpg"><h3>Cojines Lila</h3><p class="precio-descuento">160</p><button onclick="pedir(event,'Cojines Lila',160)">Pedir</button></div>
   <div class="producto"><img src="COLECCION NIÑOS.jpg"><h3>Cojines Niños</h3><p class="precio-descuento">165</p><button onclick="pedir(event,'Cojines Niños',165)">Pedir</button></div>
 </div>
+</div>
 
 <button class="btn-final" onclick="enviarPedido()">Enviar pedido</button>
 
 <div id="mensaje"></div>
 
 <script>
+
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 function guardar(){ localStorage.setItem("carrito", JSON.stringify(carrito)); }
@@ -344,6 +325,23 @@ function enviarPedido(){
   carrito=[];
   localStorage.removeItem("carrito");
   actualizar();
+}
+
+/* 🔥 FILTRO */
+function filtrarCategoria(categoria, e) {
+  const secciones = document.querySelectorAll('.categoria');
+  const botones = document.querySelectorAll('.filtro-btn');
+
+  botones.forEach(btn => btn.classList.remove('activo'));
+  if (e) e.target.classList.add('activo');
+
+  secciones.forEach(sec => {
+    if (categoria === 'todos' || sec.dataset.categoria === categoria) {
+      sec.style.display = 'block';
+    } else {
+      sec.style.display = 'none';
+    }
+  });
 }
 
 actualizar();
