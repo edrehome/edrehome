@@ -319,9 +319,18 @@ button {
   </div>
 
   <h3>Edredón Denver</h3>
-  <p class="precio-original">1200</p>
-  <p class="precio-descuento">899</p>
-  <button onclick="pedir(event,'Edredón Denver',899)">Pedir</button>
+<p class="precio-original">1200</p>
+<p class="precio-descuento">899</p>
+
+<div class="tallas">
+  <span>Talla:</span>
+  <button class="talla" onclick="seleccionarTalla(this)">IND</button>
+  <button class="talla" onclick="seleccionarTalla(this)">MAT</button>
+  <button class="talla" onclick="seleccionarTalla(this)">QS</button>
+  <button class="talla" onclick="seleccionarTalla(this)">KING</button>
+</div>
+
+<button onclick="pedir(event,'Edredón Denver',899)">Pedir</button>
 </div>
   <div class="producto">
   <!-- <span class="badge">OFERTA</span> -->
