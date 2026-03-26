@@ -428,6 +428,13 @@ button {
   transform: scale(1.05);
 }
 
+.info-envio {
+  font-size: 13px;
+  color: #555;
+  margin-top: 5px;
+  line-height: 1.4;
+}
+
 </style>
 </head>
 
@@ -786,11 +793,31 @@ function cambiarImagen(img, id){
   actualizar();
 
 // 👇 REGISTRAR SERVICE WORKER
-  if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.register("sw.js")
-      .then(() => console.log("SW registrado"));
-  }
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("sw.js")
+    .then(() => console.log("SW registrado"));
+}
+
+// 👇 POPUP ENVÍO
+function mostrarPromo(){
+  let promo = document.getElementById("promoEnvio");
+
+  promo.classList.add("mostrar");
+
+  setTimeout(()=>{
+    promo.classList.remove("mostrar");
+  }, 3000);
+}
+
+setInterval(mostrarPromo, 15000);
+setTimeout(mostrarPromo, 3000);
+
 </script>
+
+<!-- 👇 AQUÍ VA -->
+<div id="promoEnvio">
+  🚚 Envíos a toda Honduras • 💵 Pago contra entrega
+</div>
 
 </body>
 </html>
