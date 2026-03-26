@@ -17,6 +17,8 @@
 * { box-sizing: border-box; }
 html { width: 100%; overflow-x: hidden; }
 body { overflow-x: hidden; }
+padding-top: 80px; /* 👈 AGREGA ESTO */
+}
 
 /* ===== MEJORA VISUAL CARRITO ===== */
 
@@ -119,8 +121,10 @@ header * {
   padding: 15px;
   text-align: center;
   font-weight: bold;
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  width: 100%;
   z-index: 1000;
 }
 
