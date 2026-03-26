@@ -89,11 +89,40 @@ header * {
   margin-bottom: 8px;
 }
 
-/* BOTONES CARRITO */
-.btn-sumar { background:#28a745; color:white; border:none; padding:5px 8px; border-radius:5px; }
-.btn-restar { background:red; color:white; border:none; padding:5px 8px; border-radius:5px; }
-.btn-eliminar { background:red; color:white; border:none; padding:5px 8px; border-radius:5px; }
+/* BOTONES CARRITO (SUAVES) */
 
+.btn-sumar {
+  background: #d4edda;
+  color: #155724;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 8px;
+}
+
+.btn-restar {
+  background: #fff3cd;
+  color: #856404;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 8px;
+}
+
+.btn-eliminar {
+  background: #f8d7da;
+  color: #721c24;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 8px;
+}
+
+/* efecto hover */
+.btn-sumar:hover,
+.btn-restar:hover,
+.btn-eliminar:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+  cursor: pointer;
+}
 h2 { margin: 30px; }
 
 .container {
