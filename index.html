@@ -729,9 +729,7 @@ function actualizar(){
     barra.classList.add("mostrar");
   }
 
-  guardar();
-  render();
-}
+  }
 
   // 👇 CONTROL BOTON FLOTANTE
   let btn = document.getElementById("btnFlotante");
@@ -744,6 +742,8 @@ if(cantidad === 0){
   btn.classList.remove("oculto");
 }
   }
+guardar();
+render();
 
 function render(){
   let div = document.getElementById("detalleCarrito");
@@ -855,9 +855,9 @@ function cambiarImagen(img, id){
   contenedor.dataset.precio = precio;
 }
 
- window.onload = function(){
+ document.addEventListener("DOMContentLoaded", function(){
   actualizar();
- }
+});
 // 👇 REGISTRAR SERVICE WORKER
 if ("serviceWorker" in navigator) {
   navigator.serviceWorker.register("sw.js")
