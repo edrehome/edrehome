@@ -714,13 +714,14 @@ function cambiarImagen(img, id){
 
   btn.classList.add("activa");
 
-  // 🔥 actualizar precio descuento
-  let precioDesc = contenedor.querySelector(".precio-descuento");
-  if(precioDesc){
-    precioDesc.innerText = precio;
+  // 🔥 cambiar precio (soporta todos los casos)
+  let precioHTML = contenedor.querySelector(".precio-descuento, .precio");
+
+  if(precioHTML){
+    precioHTML.innerText = precio;
   }
 
-  // 🔥 actualizar precio original
+  // 🔥 cambiar precio original si existe
   let precioOrig = contenedor.querySelector(".precio-original");
   if(precioOrig){
     precioOrig.innerText = precioOriginal;
@@ -729,7 +730,8 @@ function cambiarImagen(img, id){
   // 🔥 guardar precio final
   contenedor.dataset.precio = precio;
 }
-actualizar();
+
+  actualizar();
 
 // 👇 REGISTRAR SERVICE WORKER
   if ("serviceWorker" in navigator) {
