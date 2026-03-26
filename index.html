@@ -427,10 +427,10 @@ button {
 
 <div class="tallas">
   <span>Talla:</span>
-  <button class="talla" onclick="seleccionarTalla(this, 799)">IND</button>
-  <button class="talla" onclick="seleccionarTalla(this, 899)">MAT</button>
-  <button class="talla" onclick="seleccionarTalla(this, 999)">QS</button>
-  <button class="talla" onclick="seleccionarTalla(this, 1099)">KING</button>
+<button class="talla" onclick="seleccionarTalla(this, 999, 799)">IND</button>
+<button class="talla" onclick="seleccionarTalla(this, 1200, 899)">MAT</button>
+<button class="talla" onclick="seleccionarTalla(this, 1400, 999)">QS</button>
+<button class="talla" onclick="seleccionarTalla(this, 1600, 1099)">KING</button>
 </div>
 
 <button onclick="pedir(event,'Edredón Denver',899)">Pedir</button>
@@ -695,7 +695,7 @@ function cambiarImagen(img, id){
   document.getElementById(id).src = img.src;
 }
 
-  function seleccionarTalla(btn, precio){
+  function seleccionarTalla(btn, precioOriginal, precio){
 
   let contenedor = btn.closest(".producto");
 
@@ -705,14 +705,19 @@ function cambiarImagen(img, id){
 
   btn.classList.add("activa");
 
-  // 🔥 cambiar precio visible
-  let precioHTML = contenedor.querySelector(".precio-descuento, .precio");
-
-  if(precioHTML){
-    precioHTML.innerText = precio;
+  // 🔥 actualizar precio descuento
+  let precioDesc = contenedor.querySelector(".precio-descuento");
+  if(precioDesc){
+    precioDesc.innerText = precio;
   }
 
-  // 🔥 guardar precio para carrito
+  // 🔥 actualizar precio original
+  let precioOrig = contenedor.querySelector(".precio-original");
+  if(precioOrig){
+    precioOrig.innerText = precioOriginal;
+  }
+
+  // 🔥 guardar precio final
   contenedor.dataset.precio = precio;
 }
 actualizar();
