@@ -722,29 +722,28 @@ function actualizar(){
 
   let barra = document.getElementById("carritoBarra");
 
-  // 👇 MOSTRAR / OCULTAR SUAVE
+  // 👇 MOSTRAR / OCULTAR CARRITO
   if(cantidad === 0){
     barra.classList.remove("mostrar");
   } else {
     barra.classList.add("mostrar");
   }
 
-  }
-
-  // 👇 CONTROL BOTON FLOTANTE
+  // 👇 CONTROL BOTÓN (DEBE IR DENTRO)
   let btn = document.getElementById("btnFlotante");
 
-  if(btn){ // 🔥 evita errores si no existe
-    
-if(cantidad === 0){
-  btn.classList.add("oculto");
-} else {
-  btn.classList.remove("oculto");
-}
+  if(btn){
+    if(cantidad === 0){
+      btn.classList.add("oculto");
+    } else {
+      btn.classList.remove("oculto");
+    }
   }
-guardar();
-render();
 
+  guardar();
+  render();
+}
+  
 function render(){
   let div = document.getElementById("detalleCarrito");
 
