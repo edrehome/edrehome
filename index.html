@@ -737,13 +737,15 @@ function actualizar(){
   let btn = document.getElementById("btnFlotante");
 
   if(btn){ // 🔥 evita errores si no existe
-    if(carrito.length === 0){
-      btn.classList.add("oculto");
-    } else {
-      btn.classList.remove("oculto");
-    }
-  }
+    let cantidad = 0;
+carrito.forEach(p => cantidad += p.cantidad);
 
+if(cantidad === 0){
+  btn.classList.add("oculto");
+} else {
+  btn.classList.remove("oculto");
+}
+  }
 
 function render(){
   let div = document.getElementById("detalleCarrito");
