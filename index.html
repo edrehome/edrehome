@@ -725,14 +725,14 @@ function actualizar(){
   document.getElementById("contador").innerText = cantidad;
   document.getElementById("total").innerText = total;
 
-  // 🔥 MOSTRAR / OCULTAR CARRITO
   let barra = document.getElementById("carritoBarra");
 
+  // 👇 MOSTRAR / OCULTAR SUAVE
   if(cantidad === 0){
-  barra.classList.remove("mostrar");
-} else {
-  barra.classList.add("mostrar");
-}
+    barra.classList.remove("mostrar");
+  } else {
+    barra.classList.add("mostrar");
+  }
 
   guardar();
   render();
