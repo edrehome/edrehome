@@ -125,16 +125,22 @@ header * {
 
 /* CARRITO PREMIUM */
 #carritoBarra {
-  background: rgba(255,255,255,0.9);
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  width: 280px;
+
+  background: rgba(255,255,255,0.95);
   backdrop-filter: blur(10px);
-  padding: 15px;
+
+  padding: 10px;
+  border-radius: 12px;
+
   text-align: center;
   font-weight: bold;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000;
+
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  z-index: 9999;
 }
 
 #detalleCarrito {
@@ -142,6 +148,18 @@ header * {
   padding: 10px;
   border-radius: 10px;
   margin-top: 10px;
+
+  max-height: 250px;
+  overflow-y: auto;
+}
+
+#detalleCarrito::-webkit-scrollbar {
+  width: 5px;
+}
+
+#detalleCarrito::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 10px;
 }
 
 .item-carrito {
