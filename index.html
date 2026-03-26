@@ -435,6 +435,28 @@ button {
   line-height: 1.4;
 }
 
+/* ===== POPUP ENVÍO ===== */
+#promoEnvio {
+  position: fixed;
+  bottom: 90px;
+  left: 50%;
+  transform: translateX(-50%) translateY(30px);
+  background: rgba(0,0,0,0.85);
+  color: white;
+  padding: 12px 18px;
+  border-radius: 30px;
+  font-size: 14px;
+  opacity: 0;
+  transition: all 0.4s ease;
+  z-index: 99999;
+  pointer-events: none;
+}
+
+#promoEnvio.mostrar {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
 </style>
 </head>
 
