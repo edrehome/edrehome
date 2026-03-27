@@ -490,8 +490,8 @@ button {
   transform: translateX(-50%) translateY(0);
 }
 
-  /* 👇 BOTONES PRODUCTO (PEDIR / COMPARTIR) */
-.producto button {
+  /* 👇 SOLO BOTÓN PEDIR */
+.btn-pedir {
   width: 100%;
   padding: 10px;
   margin-top: 6px;
@@ -502,18 +502,38 @@ button {
   border-radius: 8px;
   border: none;
 
-  background: rgba(255, 77, 109, 0.15); /* rosa suave */
-  color: #b3003c;
-
-  transition: all 0.3s ease;
-}
-
-/* 👇 HOVER */
-.producto button:hover {
   background: #ff4d6d;
   color: white;
-  transform: scale(1.02);
+
+  transition: 0.3s;
 }
+
+.btn-pedir:hover {
+  background: #e6004c;
+}
+
+/* 👇 SOLO BOTÓN COMPARTIR */
+.btn-compartir {
+  width: 100%;
+  padding: 10px;
+  margin-top: 6px;
+
+  font-size: 13px;
+
+  border-radius: 8px;
+  border: none;
+
+  background: rgba(255, 77, 109, 0.15);
+  color: #b3003c;
+
+  transition: 0.3s;
+}
+
+.btn-compartir:hover {
+  background: #ff4d6d;
+  color: white;
+}
+  
 
 
 </style>
@@ -573,8 +593,8 @@ button {
 <button class="talla" onclick="seleccionarTalla(this, 1600, 1099)">KING</button>
 </div>
 
-<button onclick="pedir(event,'Edredón Denver',0)">Pedir</button>
-<button onclick="compartirProducto(this)">📤 Compartir</button>
+<button class="btn-pedir" onclick="pedir(...)">Pedir</button>
+<button class="btn-compartir" onclick="compartirProducto(this)">📤 Compartir</button>
 </div>
   <div class="producto">
   <!-- <span class="badge">OFERTA</span> -->
