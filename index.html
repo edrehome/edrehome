@@ -908,6 +908,27 @@ setTimeout(mostrarPromo, 3000);
 // repetir
 setInterval(mostrarPromo, 40000);
 
+function compartirProducto(btn){
+
+  let producto = btn.closest(".producto");
+
+  let nombre = producto.querySelector("h3").innerText;
+
+  let precioHTML = producto.querySelector(".precio, .precio-descuento");
+  let precio = precioHTML ? precioHTML.innerText : "";
+
+  let img = producto.querySelector("img").src;
+
+  let mensaje = "🔥 Mira este producto:\n\n";
+  mensaje += nombre + "\n";
+  mensaje += "Precio: L." + precio + "\n\n";
+  mensaje += img;
+
+  let url = "https://api.whatsapp.com/send?text=" + encodeURIComponent(mensaje);
+
+  window.open(url, "_blank");
+}
+
 </script>
 
 <!-- 👇 AQUÍ VA -->
