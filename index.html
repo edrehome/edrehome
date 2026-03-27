@@ -588,6 +588,21 @@ button {
   height: auto !important;
 }
 
+  /* 👇 FORZAR TAMAÑO REAL BOTONES */
+.producto button[onclick*="pedir"],
+.producto button[onclick*="compartir"] {
+  height: 38px !important;
+  min-height: unset !important;
+  padding: 0 10px !important;
+
+  font-size: 13px !important;
+  line-height: 38px !important;
+
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+}
+
 </style>
 </head>
 
