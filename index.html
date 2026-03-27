@@ -917,12 +917,17 @@ function compartirProducto(btn){
   let precioHTML = producto.querySelector(".precio, .precio-descuento");
   let precio = precioHTML ? precioHTML.innerText : "";
 
-  let img = producto.querySelector("img").src;
+  // 🔥 TODAS LAS IMÁGENES DEL PRODUCTO
+  let imgs = producto.querySelectorAll(".miniaturas img, .img-principal");
 
   let mensaje = "🔥 Mira este producto:\n\n";
   mensaje += nombre + "\n";
   mensaje += "Precio: L." + precio + "\n\n";
-  mensaje += img;
+  mensaje += "📸 Imágenes:\n";
+
+  imgs.forEach((img, i) => {
+    mensaje += (i+1) + ". " + img.src + "\n";
+  });
 
   let url = "https://api.whatsapp.com/send?text=" + encodeURIComponent(mensaje);
 
