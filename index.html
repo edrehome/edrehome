@@ -665,6 +665,63 @@ button {
   color: white !important;
 }
 
+/* 👇 BOTÓN PEDIR */
+.producto button[onclick*="pedir"] {
+  height: 34px !important;
+  padding: 0 !important;
+  font-size: 12px !important;
+  line-height: 34px !important;
+
+  border-radius: 6px !important;
+}
+
+/* 👇 BOTÓN COMPARTIR (USANDO CLASE) */
+.btn-compartir {
+  height: 34px !important;
+  padding: 0 !important;
+  font-size: 12px !important;
+  line-height: 34px !important;
+
+  border-radius: 6px !important;
+
+  background: #25D366 !important;
+  color: white !important;
+}
+
+.btn-pedir {
+  height: 34px !important;
+  padding: 0 !important;
+  font-size: 12px !important;
+  line-height: 34px !important;
+
+  background: #ff4d6d !important;
+  color: white !important;
+}
+
+/* 👇 PEDIR */
+.btn-pedir {
+  height: 34px !important;
+  padding: 0 !important;
+  font-size: 12px !important;
+  line-height: 34px !important;
+
+  border-radius: 6px !important;
+  background: #ff4d6d !important;
+  color: white !important;
+}
+
+/* 👇 COMPARTIR */
+.btn-compartir {
+  height: 34px !important;
+  padding: 0 !important;
+  font-size: 12px !important;
+  line-height: 34px !important;
+
+  border-radius: 6px !important;
+  background: #25D366 !important;
+  color: white !important;
+}
+
 </style>
 </head>
 
@@ -722,7 +779,7 @@ button {
 <button class="talla" onclick="seleccionarTalla(this, 1600, 1099)">KING</button>
 </div>
 
-<button onclick="pedir(event,'Edredón Gales')">Pedir</button>
+<button class="btn-pedir" onclick="pedir(event,'Edredón Denver')">
 <button class="btn-compartir" onclick="compartirProducto(this)">📲 Compartir</button> 
 </div>
   <div class="producto">
@@ -1120,6 +1177,18 @@ urls.forEach(src => {
 
   window.open(url, "_blank");
 }
+// 👇 ASIGNAR CLASES AUTOMÁTICAS
+document.querySelectorAll('.producto button').forEach(btn => {
+
+  if(btn.getAttribute("onclick")?.includes("pedir")){
+    btn.classList.add("btn-pedir");
+  }
+
+  if(btn.getAttribute("onclick")?.includes("compartirProducto")){
+    btn.classList.add("btn-compartir");
+  }
+
+});
 
 </script>
 
