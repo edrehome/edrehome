@@ -258,14 +258,7 @@ h2 { margin: 30px; }
 .precio-descuento { font-size:20px; font-weight:bold; color:#28a745; }
 
 button {
-  background: linear-gradient(135deg, #25D366, #1ebe5d);
-  color: white;
-  border: none;
-  padding: 10px;
-  border-radius: 10px;
-  cursor: pointer;
-  width: 100%;
-}
+  background: linear-gradient(135deg
 
 .btn-final { margin:30px; font-size:18px; }
 
@@ -557,6 +550,35 @@ button {
   color: white;
 }
 
+  /* 👇 BOTONES CONTROL REAL */
+.btn-pedir,
+.btn-compartir {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 36px;
+  padding: 0;
+
+  font-size: 13px;
+
+  border-radius: 8px;
+  border: none;
+
+  width: 100%;
+}
+
+/* PEDIR */
+.btn-pedir {
+  background: #ff4d6d;
+  color: white;
+}
+
+/* COMPARTIR */
+.btn-compartir {
+  background: #25D366;
+  color: white;
+}
 
 
 </style>
