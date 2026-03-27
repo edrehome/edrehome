@@ -918,16 +918,28 @@ function compartirProducto(btn){
   let precio = precioHTML ? precioHTML.innerText : "";
 
   // 🔥 TODAS LAS IMÁGENES DEL PRODUCTO
-  let imgs = producto.querySelectorAll(".miniaturas img, .img-principal");
+  let imgsMini = producto.querySelectorAll(".miniaturas img");
+  let imgPrincipal = producto.querySelector(".img-principal");
+
+let urls = new Set();
+
+// agregar principal primero
+if(imgPrincipal){
+  urls.add(imgPrincipal.src);
+}
+
+// agregar miniaturas (sin duplicar)
+imgsMini.forEach(img => urls.add(img.src));
 
   let mensaje = "🔥 Mira este producto:\n\n";
   mensaje += nombre + "\n";
   mensaje += "Precio: L." + precio + "\n\n";
   mensaje += "📸 Imágenes:\n";
 
-  imgs.forEach((img, i) => {
-    mensaje += (i+1) + ". " + img.src + "\n";
-  });
+  let i = 1;
+urls.forEach(src => {
+  mensaje += (i++) + ". " + src + "\n";
+});
 
   let url = "https://api.whatsapp.com/send?text=" + encodeURIComponent(mensaje);
 
