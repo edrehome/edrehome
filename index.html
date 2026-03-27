@@ -533,7 +533,52 @@ button {
   background: #ff4d6d;
   color: white;
 }
-  
+
+/* 👇 BOTÓN PEDIR (todos) */
+.producto button[onclick*="pedir"] {
+  width: 100%;
+  padding: 8px;
+  margin-top: 6px;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  border-radius: 8px;
+  border: none;
+
+  background: #ff4d6d;
+  color: white;
+
+  transition: 0.3s;
+}
+
+/* 👇 BOTÓN COMPARTIR (todos) */
+.producto button[onclick*="compartir"] {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+
+  font-size: 13px;
+
+  border-radius: 8px;
+  border: none;
+
+  background: rgba(255, 77, 109, 0.15);
+  color: #b3003c;
+
+  transition: 0.3s;
+}
+
+/* 👇 HOVER */
+.producto button[onclick*="pedir"]:hover,
+.producto button[onclick*="compartir"]:hover {
+  transform: scale(1.03);
+}
+
+  .producto button[onclick*="compartir"] {
+  background: #25D366 !important;
+  color: white !important;
+}
 
 
 </style>
@@ -594,7 +639,7 @@ button {
 </div>
 
 <button class="btn-pedir" onclick="pedir(...)">Pedir</button>
-<button class="btn-compartir" onclick="compartirProducto(this)">📤 Compartir</button>
+<button class="btn-compartir" onclick="compartirProducto(this)">📲 Compartir</button>
 </div>
   <div class="producto">
   <!-- <span class="badge">OFERTA</span> -->
