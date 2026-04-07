@@ -727,6 +727,7 @@ body {
 .detalle-galeria .img-principal {
   max-width: 300px;
   border-radius: 12px;
+transition: transform 0.3s ease, opacity 0.3s ease;
 }
 @media (max-width: 480px) {
   .container {
@@ -1109,12 +1110,14 @@ function cambiarImagen(img, id){
       if(index < 0) index = imagenes.length - 1;
     }
 
-    img.style.opacity = 0;
+    img.style.transform = "translateX(-20px)";
+img.style.opacity = 0;
 
-    setTimeout(() => {
-      img.src = imagenes[index];
-      img.style.opacity = 1;
-    }, 150);
+setTimeout(() => {
+  img.src = imagenes[index];
+  img.style.transform = "translateX(0)";
+  img.style.opacity = 1;
+}, 150);
   };
 }
 
