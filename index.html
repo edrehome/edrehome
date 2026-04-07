@@ -635,7 +635,30 @@ h2 { margin: 30px; }
 .producto button.pop {
   transform: scale(1) !important;
 }
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 
+  background: rgba(0,0,0,0.8);
+
+  display: none; /* 👈 CLAVE */
+  justify-content: center;
+  align-items: center;
+
+  z-index: 99999;
+}
+
+.popup-contenido {
+  background: white;
+  width: 90%;
+  max-width: 400px;
+  border-radius: 20px;
+  padding: 20px;
+  position: relative;
+}
   
 </style>
 </head>
@@ -1142,10 +1165,8 @@ function cerrarDetalle() {
 
   <div id="detalleProducto" class="popup">
   <div class="popup-contenido">
-
-    <span class="cerrar" onclick="cerrarDetalle()">✕</span>
-
-    <div id="contenidoDetalle"></div>
+   <span class="cerrar" onclick="cerrarDetalle()">✕</span>
+   <div id="contenidoDetalle"></div>
 
   </div>
 </div>
