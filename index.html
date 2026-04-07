@@ -674,34 +674,16 @@ h2 { margin: 30px; }
   <div class="producto">
   <span class="badge">OFERTA</span>
 
-  <div class="galeria">
-    <img id="img-1" src="DENVER.jpg" class="img-principal">
+    <div class="producto" onclick="abrirDetalle('denver')">
 
-    <div class="miniaturas">
-      <img src="DENVER.jpg" onclick="cambiarImagen(this,'img-1')">
-      <img src="DENVER2.jpg" onclick="cambiarImagen(this,'img-1')">
-      <img src="DENVER3.jpg" onclick="cambiarImagen(this,'img-1')">
-    </div>
-  </div>
+  <img src="DENVER.jpg" class="img-principal">
 
   <h3>Edredón Denver</h3>
-<p class="precio-original">1200</p>
-<p class="precio-descuento">899</p>
 
-<div class="tallas">
-  <span>Talla:</span>
-<button class="talla" onclick="seleccionarTalla(this, 999, 799)">IND</button>
-<button class="talla" onclick="seleccionarTalla(this, 1200, 899)">MAT</button>
-<button class="talla" onclick="seleccionarTalla(this, 1400, 999)">QS</button>
-<button class="talla" onclick="seleccionarTalla(this, 1600, 1099)">KING</button>
 </div>
+  
 
-<button class="btn-pedir" onclick="pedir(event,'Edredón Denver')">Pedir</button>
-<button class="btn-compartir" onclick="compartirProducto(this)">📲 Compartir</button> 
-</div>
-  <div class="producto">
-  <!-- <span class="badge">OFERTA</span> -->
-
+  
   <div class="galeria">
     <img id="img-2" src="CAPIBARA.jpg" class="img-principal">
 
@@ -1107,12 +1089,67 @@ document.querySelectorAll('.producto button').forEach(btn => {
 
 });
 
+function abrirDetalle(producto) {
+
+  let html = "";
+
+  if(producto === "denver") {
+
+    html = `
+      <div class="galeria">
+        <img id="img-detalle" src="DENVER.jpg" class="img-principal">
+
+        <div class="miniaturas">
+          <img src="DENVER.jpg" onclick="cambiarImagen(this,'img-detalle')">
+          <img src="DENVER2.jpg" onclick="cambiarImagen(this,'img-detalle')">
+          <img src="DENVER3.jpg" onclick="cambiarImagen(this,'img-detalle')">
+        </div>
+      </div>
+
+      <h3>Edredón Denver</h3>
+
+      <p class="precio-original">1200</p>
+      <p class="precio-descuento">899</p>
+
+      <div class="tallas">
+        <span>Talla:</span>
+
+        <button class="talla" onclick="seleccionarTalla(this, 999, 799)">IND</button>
+        <button class="talla" onclick="seleccionarTalla(this, 1200, 899)">MAT</button>
+        <button class="talla" onclick="seleccionarTalla(this, 1400, 999)">QS</button>
+        <button class="talla" onclick="seleccionarTalla(this, 1600, 1099)">KING</button>
+      </div>
+
+      <button class="btn-pedir" onclick="pedir(event,'Edredón Denver')">Pedir</button>
+      <button class="btn-compartir" onclick="compartirProducto(this)">📲 Compartir</button>
+    `;
+  }
+
+  document.getElementById("detalleProducto").style.display = "flex";
+  document.getElementById("contenidoDetalle").innerHTML = html;
+}
+
+function cerrarDetalle() {
+  document.getElementById("detalleProducto").style.display = "none";
+}
+
 </script>
 
 <!-- 👇 AQUÍ VA -->
 <div id="promoEnvio">
   🚚 Envíos a toda Honduras 🚚
 </div>
+
+  <div id="detalleProducto" class="popup">
+  <div class="popup-contenido">
+
+    <span class="cerrar" onclick="cerrarDetalle()">✕</span>
+
+    <div id="contenidoDetalle"></div>
+
+  </div>
+</div>
+
 
 </body>
 </html>
