@@ -698,6 +698,37 @@ body {
   width: 100%;
   margin: 0;
 }
+
+  .detalle-galeria {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.miniaturas-vertical {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.miniaturas-vertical img {
+  width: 60px;
+  border-radius: 8px;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: 0.3s;
+}
+
+.miniaturas-vertical img:hover {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+.img-principal {
+  max-width: 300px;
+  border-radius: 12px;
+}
+  
   
 </style>
 </head>
@@ -1142,14 +1173,18 @@ if(e) e.preventDefault(); // 👈 ESTO ARREGLA EL SCROLL
 
     html = `
   <div class="producto">
+<div class="detalle-galeria">
 
-    <img id="img-detalle" src="DENVER.jpg" class="img-principal">
+  <div class="miniaturas-vertical">
+    <img src="DENVER.jpg" onclick="cambiarImagen(this,'img-detalle')">
+    <img src="DENVER2.jpg" onclick="cambiarImagen(this,'img-detalle')">
+    <img src="DENVER3.jpg" onclick="cambiarImagen(this,'img-detalle')">
+  </div>
 
-    <div class="miniaturas">
-      <img src="DENVER.jpg" onclick="cambiarImagen(this,'img-detalle')">
-      <img src="DENVER2.jpg" onclick="cambiarImagen(this,'img-detalle')">
-      <img src="DENVER3.jpg" onclick="cambiarImagen(this,'img-detalle')">
-    </div>
+  <img id="img-detalle" src="DENVER.jpg" class="img-principal">
+
+</div>
+    
 
     <h3>Edredón Denver</h3>
 
