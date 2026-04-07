@@ -1112,14 +1112,15 @@ document.querySelectorAll('.producto button').forEach(btn => {
 
 });
 
-function abrirDetalle(producto) {
+  function abrirDetalle(producto) {
 
   let html = "";
 
   if(producto === "denver") {
 
     html = `
-      <div class="galeria">
+      <div class="producto">
+
         <img id="img-detalle" src="DENVER.jpg" class="img-principal">
 
         <div class="miniaturas">
@@ -1127,30 +1128,32 @@ function abrirDetalle(producto) {
           <img src="DENVER2.jpg" onclick="cambiarImagen(this,'img-detalle')">
           <img src="DENVER3.jpg" onclick="cambiarImagen(this,'img-detalle')">
         </div>
+
+        <h3>Edredón Denver</h3>
+
+        <p class="precio-original">1200</p>
+        <p class="precio-descuento">899</p>
+
+        <div class="tallas">
+          <span>Talla:</span>
+
+          <button class="talla" onclick="seleccionarTalla(this, 999, 799)">IND</button>
+          <button class="talla" onclick="seleccionarTalla(this, 1200, 899)">MAT</button>
+          <button class="talla" onclick="seleccionarTalla(this, 1400, 999)">QS</button>
+          <button class="talla" onclick="seleccionarTalla(this, 1600, 1099)">KING</button>
+        </div>
+
+        <button class="btn-pedir" onclick="pedir(event,'Edredón Denver')">Pedir</button>
+        <button class="btn-compartir" onclick="compartirProducto(this)">📲 Compartir</button>
+
       </div>
-
-      <h3>Edredón Denver</h3>
-
-      <p class="precio-original">1200</p>
-      <p class="precio-descuento">899</p>
-
-      <div class="tallas">
-        <span>Talla:</span>
-
-        <button class="talla" onclick="seleccionarTalla(this, 999, 799)">IND</button>
-        <button class="talla" onclick="seleccionarTalla(this, 1200, 899)">MAT</button>
-        <button class="talla" onclick="seleccionarTalla(this, 1400, 999)">QS</button>
-        <button class="talla" onclick="seleccionarTalla(this, 1600, 1099)">KING</button>
-      </div>
-
-      <button class="btn-pedir" onclick="pedir(event,'Edredón Denver')">Pedir</button>
-      <button class="btn-compartir" onclick="compartirProducto(this)">📲 Compartir</button>
     `;
   }
 
   document.getElementById("detalleProducto").style.display = "flex";
   document.getElementById("contenidoDetalle").innerHTML = html;
 }
+
 
 function cerrarDetalle() {
   document.getElementById("detalleProducto").style.display = "none";
