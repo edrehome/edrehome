@@ -766,10 +766,15 @@ h2 { margin: 30px; }
 
   <h3>Edredón Gales</h3>
 
-<p class="precio">2200</p>
-
-<button onclick="abrirDetalle('gales')" class="btn-pedir">Ver</button>
+<div class="tallas">
+  <span>Talla:</span>
+  <button class="talla" onclick="seleccionarTalla(this, 2400, 2200)">QS</button>
+  <button class="talla" onclick="seleccionarTalla(this, 2600, 2400)">KING</button>
 </div>
+
+<p class="precio">Selec. talla</p>
+
+<button onclick="pedir(event,'Edredón Gales',0)">Pedir</button>
   <div class="producto"><img src="SHADOW.jpg"><h3>Edredón Shadow</h3><p class="precio-descuento">920</p><button onclick="pedir(event,'Edredón Shadow',920)">Pedir</button></div>
 </div>
 </div>
