@@ -1134,15 +1134,7 @@ document.querySelectorAll('.producto button').forEach(btn => {
 
     html = `
       <div class="producto">
-
         <img id="img-detalle" src="DENVER.jpg" class="img-principal">
-
-        <div class="miniaturas">
-          <img src="DENVER.jpg" onclick="cambiarImagen(this,'img-detalle')">
-          <img src="DENVER2.jpg" onclick="cambiarImagen(this,'img-detalle')">
-          <img src="DENVER3.jpg" onclick="cambiarImagen(this,'img-detalle')">
-        </div>
-
         <h3>Edredón Denver</h3>
 
         <p class="precio-original">1200</p>
@@ -1150,16 +1142,81 @@ document.querySelectorAll('.producto button').forEach(btn => {
 
         <div class="tallas">
           <span>Talla:</span>
-
           <button class="talla" onclick="seleccionarTalla(this, 999, 799)">IND</button>
           <button class="talla" onclick="seleccionarTalla(this, 1200, 899)">MAT</button>
           <button class="talla" onclick="seleccionarTalla(this, 1400, 999)">QS</button>
           <button class="talla" onclick="seleccionarTalla(this, 1600, 1099)">KING</button>
         </div>
 
-        <button class="btn-pedir" onclick="pedir(event,'Edredón Denver')">Pedir</button>
+        <button class="btn-pedir" onclick="pedir(event,'Edredón Denver',899)">Pedir</button>
         <button class="btn-compartir" onclick="compartirProducto(this)">📲 Compartir</button>
+      </div>
+    `;
+  }
 
+  else if(producto === "capibara") {
+
+    html = `
+      <div class="producto">
+        <img id="img-detalle" src="CAPIBARA.jpg" class="img-principal">
+        <h3>Edredón Capibara</h3>
+
+        <p class="precio">1200</p>
+
+        <button class="btn-pedir" onclick="pedir(event,'Edredón Capibara',1200)">Pedir</button>
+        <button class="btn-compartir" onclick="compartirProducto(this)">📲 Compartir</button>
+      </div>
+    `;
+  }
+
+  else if(producto === "cooper") {
+
+    html = `
+      <div class="producto">
+        <img id="img-detalle" src="COOPER.jpg" class="img-principal">
+        <h3>Edredón Cooper</h3>
+
+        <p class="precio">850</p>
+
+        <button class="btn-pedir" onclick="pedir(event,'Edredón Cooper',850)">Pedir</button>
+        <button class="btn-compartir" onclick="compartirProducto(this)">📲 Compartir</button>
+      </div>
+    `;
+  }
+
+  else if(producto === "gales") {
+
+    html = `
+      <div class="producto">
+        <img id="img-detalle" src="GALES.jpg" class="img-principal">
+        <h3>Edredón Gales</h3>
+
+        <p class="precio-original">2400</p>
+        <p class="precio-descuento">2200</p>
+
+        <div class="tallas">
+          <span>Talla:</span>
+          <button class="talla" onclick="seleccionarTalla(this, 2400, 2200)">QS</button>
+          <button class="talla" onclick="seleccionarTalla(this, 2600, 2400)">KING</button>
+        </div>
+
+        <button class="btn-pedir" onclick="pedir(event,'Edredón Gales',2200)">Pedir</button>
+        <button class="btn-compartir" onclick="compartirProducto(this)">📲 Compartir</button>
+      </div>
+    `;
+  }
+
+  else if(producto === "shadow") {
+
+    html = `
+      <div class="producto">
+        <img id="img-detalle" src="SHADOW.jpg" class="img-principal">
+        <h3>Edredón Shadow</h3>
+
+        <p class="precio">920</p>
+
+        <button class="btn-pedir" onclick="pedir(event,'Edredón Shadow',920)">Pedir</button>
+        <button class="btn-compartir" onclick="compartirProducto(this)">📲 Compartir</button>
       </div>
     `;
   }
@@ -1167,6 +1224,7 @@ document.querySelectorAll('.producto button').forEach(btn => {
   document.getElementById("detalleProducto").style.display = "flex";
   document.getElementById("contenidoDetalle").innerHTML = html;
 }
+  
 
 
 function cerrarDetalle() {
