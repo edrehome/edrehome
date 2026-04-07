@@ -84,6 +84,18 @@ header {
    background: url('FONDO CABECERA2.jpg') center/cover no-repeat;
 }
 
+  .header-content {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  text-align: right;
+}
+
 header::before {
   content: "";
   position: absolute;
@@ -614,9 +626,11 @@ h2 { margin: 30px; }
 <body>
 
 <header>
-  <img src="LOGO EDRE.png" class="logo">
-  <h1>EdreHome Store</h1>
-  <p>Descanso y estilo para tu hogar</p>
+  <div class="header-content">
+    <img src="LOGO EDRE.png" class="logo">
+    <h1>EdreHome Store</h1>
+    <p>Descanso y estilo para tu hogar</p>
+  </div>
 </header>
 
 <div id="carritoBarra">
