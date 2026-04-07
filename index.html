@@ -246,9 +246,10 @@ h2 { margin: 30px; }
 
 .container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(3, 1fr); /* 👈 AQUÍ */
   gap: 20px;
   padding: 0 15px 20px;
+  align-items: start;
 }
 
 /* PRODUCTOS */
@@ -690,6 +691,8 @@ h2 { margin: 30px; }
 .producto .tallas {
   min-height: 40px;
 }
+
+
   
 </style>
 </head>
@@ -728,7 +731,7 @@ h2 { margin: 30px; }
   <div class="producto">
   <span class="badge">OFERTA</span>
 
-    <div class="producto" onclick="abrirDetalle('denver')">
+    <div class="producto" onclick="abrirDetalle(event, 'denver')">
 
   <img src="DENVER.jpg" class="img-principal">
 
@@ -736,7 +739,7 @@ h2 { margin: 30px; }
 
 </div>
  
-  <div class="producto" onclick="abrirDetalle('capibara')">
+  <div class="producto" onclick="abrirDetalle(event, 'capibara')">
 
   <img src="CAPIBARA.jpg" class="img-principal">
 
@@ -745,7 +748,7 @@ h2 { margin: 30px; }
 </div>
 
     
-  <div class="producto" onclick="abrirDetalle('cooper')">
+  <div class="producto" onclick="abrirDetalle(event, 'cooper')">
 
   <img src="COOPER.jpg" class="img-principal">
 
@@ -753,7 +756,7 @@ h2 { margin: 30px; }
 
 </div>
 
-  <div class="producto" onclick="abrirDetalle('gales')">
+  <div class="producto" onclick="abrirDetalle(event, 'gales')">
 
   <img src="GALES.jpg" class="img-principal">
 
@@ -761,7 +764,7 @@ h2 { margin: 30px; }
 
 </div>
     
- <div class="producto" onclick="abrirDetalle('shadow')">
+ <div class="producto" onclick="abrirDetalle(event, 'shadow')">
 
   <img src="SHADOW.jpg" class="img-principal">
 
@@ -1126,8 +1129,8 @@ document.querySelectorAll('.producto button').forEach(btn => {
 
 });
 
-  function abrirDetalle(producto) {
-
+  function abrirDetalle(e, producto) {
+if(e) e.preventDefault(); // 👈 ESTO ARREGLA EL SCROLL
   let html = "";
 
   if(producto === "denver") {
