@@ -1084,6 +1084,41 @@ function cambiarImagen(img, id){
   document.getElementById(id).src = img.src;
 }
 
+function activarSwipe(id, imagenes) {
+
+  let index = 0;
+  const img = document.getElementById(id);
+
+  let startX = 0;
+
+  img.addEventListener("touchstart", e => {
+    startX = e.touches[0].clientX;
+  });
+
+  img.addEventListener("touchend", e => {
+    let endX = e.changedTouches[0].clientX;
+
+    if(startX - endX > 50) {
+      // 👉 swipe izquierda
+      index++;
+      if(index >= imagenes.length) index = 0;
+    }
+
+    if(endX - startX > 50) {
+      // 👉 swipe derecha
+      index--;
+      if(index < 0) index = imagenes.length - 1;
+    }
+
+    img.style.opacity = 0;
+
+    setTimeout(() => {
+      img.src = imagenes[index];
+      img.style.opacity = 1;
+    }, 150);
+  });
+}
+
   function seleccionarTalla(btn, precioOriginal, precio){
 
   let contenedor = btn.closest(".producto");
@@ -1334,7 +1369,22 @@ if(e) e.preventDefault(); // 👈 ESTO ARREGLA EL SCROLL
   document.getElementById("detalleProducto").style.display = "flex";
   document.getElementById("contenidoDetalle").innerHTML = html;
 }
-  
+
+  if(producto === "denver"){
+  activarSwipe("img-detalle", [
+    "DENVER.jpg",
+    "DENVER2.jpg",
+    "DENVER3.jpg"
+  ]);
+}
+
+if(producto === "gales"){
+  activarSwipe("img-detalle", [
+    "GALES.jpg",
+    "GALES2.jpg",
+    "GALES3.jpg"
+  ]);
+}
 
 
 function cerrarDetalle() {
