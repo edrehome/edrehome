@@ -1141,9 +1141,17 @@ if(e) e.preventDefault(); // 👈 ESTO ARREGLA EL SCROLL
   if(producto === "denver") {
 
     html = `
-      <div class="producto">
-        <img id="img-detalle" src="DENVER.jpg" class="img-principal">
-        <h3>Edredón Denver</h3>
+  <div class="producto">
+
+    <img id="img-detalle" src="DENVER.jpg" class="img-principal">
+
+    <div class="miniaturas">
+      <img src="DENVER.jpg" onclick="cambiarImagen(this,'img-detalle')">
+      <img src="DENVER2.jpg" onclick="cambiarImagen(this,'img-detalle')">
+      <img src="DENVER3.jpg" onclick="cambiarImagen(this,'img-detalle')">
+    </div>
+
+    <h3>Edredón Denver</h3>
 
         <p class="precio-original">1200</p>
         <p class="precio-descuento">899</p>
