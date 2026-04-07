@@ -679,6 +679,14 @@ h2 { margin: 30px; }
   height: 250px;
   object-fit: cover;
 }
+.producto {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.container {
+  align-items: start;
+}
   
 </style>
 </head>
@@ -757,19 +765,10 @@ h2 { margin: 30px; }
   </div>
 
   <h3>Edredón Gales</h3>
-  <!-- <p class="precio-original">1200</p> -->
-  <!-- <p class="precio-descuento">899</p> -->
 
-<div class="tallas">
-  <span>Talla:</span>
-<!-- <button class="talla" onclick="seleccionarTalla(this, 999, 799)">IND</button> -->
-<!-- <button class="talla" onclick="seleccionarTalla(this, 1200, 899)">MAT</button> -->
-<button class="talla" onclick="seleccionarTalla(this, 2400, 2200)">QS</button>
-<button class="talla" onclick="seleccionarTalla(this, 2600, 2400)">KING</button>
-</div>
-    
-  <p class="precio">Selec. talla</p>
-  <button onclick="pedir(event,'Edredón Gales',0)">Pedir</button>
+<p class="precio">2200</p>
+
+<button onclick="abrirDetalle('gales')" class="btn-pedir">Ver</button>
 </div>
   <div class="producto"><img src="SHADOW.jpg"><h3>Edredón Shadow</h3><p class="precio-descuento">920</p><button onclick="pedir(event,'Edredón Shadow',920)">Pedir</button></div>
 </div>
