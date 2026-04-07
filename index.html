@@ -1288,7 +1288,17 @@ if(e) e.preventDefault(); // 👈 ESTO ARREGLA EL SCROLL
 
     html = `
       <div class="producto">
-        <img id="img-detalle" src="GALES.jpg" class="img-principal">
+        <div class="detalle-galeria">
+
+  <div class="miniaturas-vertical">
+    <img src="GALES.jpg" onclick="cambiarImagen(this,'img-detalle')">
+    <img src="GALES2.jpg" onclick="cambiarImagen(this,'img-detalle')">
+    <img src="GALES3.jpg" onclick="cambiarImagen(this,'img-detalle')">
+  </div>
+
+  <img id="img-detalle" src="GALES.jpg" class="img-principal">
+
+</div>
         <h3>Edredón Gales</h3>
 
         <p class="precio-original">2400</p>
