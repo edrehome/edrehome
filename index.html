@@ -853,6 +853,12 @@ transition: transform 0.3s ease, opacity 0.3s ease;
   }
 
 }
+
+  @media (min-width: 769px) {
+  .menu-btn {
+    display: none;
+  }
+}
    
 </style>
   
@@ -862,9 +868,13 @@ transition: transform 0.3s ease, opacity 0.3s ease;
 
   <div id="menuLateral" class="menu">
   <h3>Menú</h3>
-  <p>Edredones</p>
-  <p>Almohadas</p>
-  <p>Cortinas</p>
+
+<p onclick="filtrarCategoria('todos', event)">Todos</p>
+<p onclick="filtrarCategoria('Edredones', event)">Edredones</p>
+<p onclick="filtrarCategoria('Almohadas', event)">Almohadas</p>
+<p onclick="filtrarCategoria('Cortinas', event)">Cortinas</p>
+<p onclick="filtrarCategoria('Sábanas', event)">Sábanas</p>
+<p onclick="filtrarCategoria('Cojines', event)">Cojines</p>
 </div>
 
 <header>
