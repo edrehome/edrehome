@@ -1173,6 +1173,9 @@ function filtrarCategoria(categoria, e) {
       sec.style.display = 'none';
     }
   });
+
+  // 🔥 ESTA LÍNEA CIERRA EL MENÚ
+  document.getElementById("menuLateral").classList.remove("abierto");
 }
   /* 👇 PEGALO AQUÍ */
 function cambiarImagen(img, id){
