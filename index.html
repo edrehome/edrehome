@@ -815,18 +815,12 @@ transition: transform 0.3s ease, opacity 0.3s ease;
   color: white;
   z-index: 10000;
 }
-  
-</style>
-  
-</head>
 
-<body>
-
-  <div id="menuLateral" style="
+  .menu {
   position: fixed;
   top: 0;
-  left: -250px;
-  width: 250px;
+  left: -260px;
+  width: 260px;
   height: 100%;
   background: white;
   box-shadow: 2px 0 10px rgba(0,0,0,0.2);
@@ -834,7 +828,19 @@ transition: transform 0.3s ease, opacity 0.3s ease;
   z-index: 99999;
   padding: 20px;
   overflow-y: auto;
-">
+}
+
+.menu.abierto {
+  left: 0;
+}
+   
+</style>
+  
+</head>
+
+<body>
+
+  <div id="menuLateral" class="menu">
   <h3>Menú</h3>
   <p>Edredones</p>
   <p>Almohadas</p>
@@ -1473,15 +1479,7 @@ function cerrarDetalle() {
 }
 
   function toggleMenu() {
-  let menu = document.getElementById("menuLateral");
-
-  if (menu.classList.contains("abierto")) {
-    menu.style.left = "-250px";
-    menu.classList.remove("abierto");
-  } else {
-    menu.style.left = "0px";
-    menu.classList.add("abierto");
-  }
+  document.getElementById("menuLateral").classList.toggle("abierto");
 }
 
 </script>
