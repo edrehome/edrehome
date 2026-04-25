@@ -1474,13 +1474,13 @@ function cerrarDetalle() {
   function toggleMenu() {
   let menu = document.getElementById("menuLateral");
 
-  if (menu.style.left === "0px") {
+  if (menu.classList.contains("abierto")) {
     menu.style.left = "-250px";
+    menu.classList.remove("abierto");
   } else {
     menu.style.left = "0px";
+    menu.classList.add("abierto");
   }
-
-  menu.style.overflowY = "auto"; // 🔥 permite ver todo el contenido
 }
 
 </script>
