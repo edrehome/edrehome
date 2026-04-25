@@ -795,33 +795,16 @@ transition: transform 0.3s ease, opacity 0.3s ease;
     grid-template-columns: repeat(2, 1fr) !important;
   }
 }
- .menu-btn {
-    position: fixed;
-    top: 15px;
-    left: 10px;
-    right: auto;
-    font-size: 22px;
-    background: none;
-    border: none;
-    color: white;
-    z-index: 999;
-  } 
+ 
    header {
   position: relative;
 }
 
   .menu-btn {
-  position: absolute !important;
+  position: absolute;
   top: 15px;
   left: 15px;
-  right: auto !important;
-}
-
-  .menu-btn {
-  position: absolute !important;
-  top: 15px;
-  left: 15px !important;
-  transform: none !important;
+  z-index: 10000;
 }
 </style>
   
