@@ -1471,6 +1471,16 @@ function cerrarDetalle() {
   document.getElementById("detalleProducto").style.display = "none";
 }
 
+  function toggleMenu() {
+  let menu = document.getElementById("menuLateral");
+
+  if (menu.style.left === "0px") {
+    menu.style.left = "-250px";
+  } else {
+    menu.style.left = "0px";
+  }
+}
+
 </script>
 
 <!-- 👇 AQUÍ VA -->
