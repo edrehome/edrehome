@@ -833,6 +833,26 @@ transition: transform 0.3s ease, opacity 0.3s ease;
 .menu.abierto {
   left: 0;
 }
+
+  /* 🔥 SOLO MÓVIL */
+@media (max-width: 768px) {
+
+  /* ocultar menú horizontal */
+  #filtros {
+    display: none;
+  }
+
+}
+
+/* 🔥 SOLO PC */
+@media (min-width: 769px) {
+
+  /* ocultar menú lateral */
+  #menuLateral {
+    display: none !important;
+  }
+
+}
    
 </style>
   
