@@ -822,8 +822,26 @@ transition: transform 0.3s ease, opacity 0.3s ease;
 
 <body>
 
+  <div id="menuLateral" style="
+  position: fixed;
+  top: 0;
+  left: -250px;
+  width: 250px;
+  height: 100%;
+  background: white;
+  box-shadow: 2px 0 10px rgba(0,0,0,0.2);
+  transition: 0.3s;
+  z-index: 99999;
+  padding: 20px;
+">
+  <h3>Menú</h3>
+  <p>Edredones</p>
+  <p>Almohadas</p>
+  <p>Cortinas</p>
+</div>
+
 <header>
-  <button class="menu-btn">☰</button>
+  <button class="menu-btn" onclick="toggleMenu()">☰</button>
 
 <div class="header-content">
   <img src="LOGO EDRE2.png" class="logo" style="height: auto; width: 200px;">
